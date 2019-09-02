@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md">
+    <h2><%= @course.title %></h2>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Desc:</strong> <%= @course.description %></li>
+      <li class="list-group-item"><strong>Category:</strong> <%= @course.category %></li>
+      <li class="list-group-item"><strong>Price:</strong> <%= "£" + "#{@course.price}" %></li>
+    </ul>
+    <div class="row" style='padding: 15px 0 0 0'>
+      <div class='col-md'>
+        <% if user_signed_in? && current_user.courses[@course.id] %>
+          <p class='lead'><%= "You are signed up to this course, congratulations!!!" %></p>
+          <% if @course.stations.any? %>
+            <ul class="list-group">
+              <% @course.stations.each do |station| %>
+              <li class="list-group-item">
+                <%= link_to station.title, station_path(station) %>
+              </li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% else %>
+          <%= link_to "Sign up for this course", user_courses_path(user: current_user, course: @course), class:"btn btn-primary", method: :post %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

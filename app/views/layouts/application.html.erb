@@ -7,9 +7,25 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navigation'%>
+    <div class="container">
+      <% flash.each do |type, msg| %>
+         <% if type == "notice" %>
+           <div class="alert alert-success">
+         <% elsif type == "alert" %>
+           <div class="alert alert-danger">
+         <% else %>
+           <div class='alert alert-<%= "#{type}" %>'>
+         <% end %>
+         <a href="#" class="close" data-dismiss="alert">&#215;</a>
+          <%= msg %>
+         </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

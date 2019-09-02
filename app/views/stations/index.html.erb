@@ -1,0 +1,7 @@
+<h1>Station index</h1>
+<% @stations.each do |station| %>
+  <p><%= station.title %></p>
+  <p><%= station.description %></p>
+  <p><%= station.scenario %></p>
+  <p><%= station.answer %></p>
+<% end %>

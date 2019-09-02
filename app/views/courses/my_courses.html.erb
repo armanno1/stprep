@@ -1,0 +1,15 @@
+<div class="row">
+<% if !!@no_courses %>
+  <div class="col-md">
+    <%= @no_courses%>
+  </div>
+<% else %>
+  <div class="col-md">
+    <ul class="list-group">
+      <% @courses.each do |course| %>
+      <li class="list-group-item"><%= link_to course.title, course_path(course) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
