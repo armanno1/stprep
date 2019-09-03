@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :courses, :stations
   resources :user_courses, only: [:create]
   get 'my_courses', to: 'courses#my_courses'
+  resources :payments
 end
