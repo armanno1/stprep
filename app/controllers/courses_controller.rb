@@ -1,12 +1,15 @@
 class CoursesController < ApplicationController
-  before_action :require_admin, only: [:create, :update]
+  before_action :require_admin, only: [:create, :update, :destroy]
   before_action :set_course, only: [:edit, :update, :show, :destroy]
 
   def my_courses
-    if !!current_user.courses.all
+    if user_signed_in? && current_user.courses.any? && !current_user.admin
       @courses = current_user.courses.all
+    elsif user_signed_in? && current_user.admin
+      @courses = Course.all
     else
-      @no_courses = "You have no courses"
+      flash[:danger] = "You have no courses!"
+      redirect_to courses_path
     end
   end
 
@@ -29,10 +32,27 @@ class CoursesController < ApplicationController
   end
 
   def update
+    if @course.update(course_params)
+      flash[:success] = "Course was successfully updated."
+      redirect_to course_path(@course)
+    else
+      render "edit"
+    end
   end
 
   def show
-    @course_stations = @course.stations.all if !!@course.stations
+    @course_stations = @course.stations.all if @course.stations
+  end
+
+  def destroy
+    course = Course.find(params[:id])
+    if course.destroy
+      flash[:success] = "Course has been deleted"
+      redirect_to my_courses_path
+    else
+      flash[:danger] = "Problem deleting course"
+      redirect_to my_courses_path
+    end
   end
 
   private

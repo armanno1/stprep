@@ -1,48 +1,29 @@
-<script>
-  var stripe = Stripe('pk_test_qfH2BOWhxkEXfcL99c6RhRR300QJqMIBMZ');
-
-  var checkoutButton = document.querySelector('#checkout-button');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      items: [{
-        // Define the product and SKU in the Dashboard first, and use the SKU
-        // ID in your client-side code.
-        sku: 'sku_123',
-        quantity: 1
-      }],
-      successUrl: 'https://www.example.com/success',
-      cancelUrl: 'https://www.example.com/cancel'
-    });
-  });
-</script>
-
 <div class="row">
   <div class="col-md">
+    <% if user_signed_in? && current_user.courses.find_by_id(@course.id) %>
     <h2><%= @course.title %></h2>
-    <ul class="list-group">
-      <li class="list-group-item"><strong>Desc:</strong> <%= @course.description %></li>
-      <li class="list-group-item"><strong>Category:</strong> <%= @course.category %></li>
-      <li class="list-group-item"><strong>Price:</strong> <%= "£" + "#{@course.price}" %></li>
-    </ul>
-    <div class="row" style='padding: 15px 0 0 0'>
-      <div class='col-md'>
-        <%= @course.id %>
-        <%= current_user.courses[@course.id] %>
-        <% if user_signed_in? && current_user.courses.find_by_id(@course.id) %>
-          <p class='lead'><%= "You are signed up to this course, congratulations!!!" %></p>
-          <% if @course.stations.any? %>
-            <ul class="list-group">
-              <% @course.stations.each do |station| %>
-              <li class="list-group-item">
-                <%= link_to station.title, station_path(station) %>
-              </li>
-              <% end %>
-            </ul>
+      <% if @course.stations.any? %>
+        <ul class="list-group">
+          <% @course.stations.each do |station| %>
+          <li class="list-group-item">
+            <%= link_to station.title, station_path(station) %>
+          </li>
           <% end %>
-        <% else %>
-          <%= link_to "Sign up for this course", payments_path(course: @course), class:"btn btn-primary", method: :post %>
-        <% end %>
-      </div>
-    </div>
+        </ul>
+      <% end %>
+    <% else %>
+      <h2><%= @course.title %></h2>
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Desc:</strong> <%= @course.description %></li>
+        <li class="list-group-item"><strong>Category:</strong> <%= @course.category %></li>
+        <li class="list-group-item"><strong>Price:</strong> <%= "£" + "#{@course.price}" %></li>
+      </ul>
+      <br />
+      <% if user_signed_in? %>
+        <%= link_to "Sign up for this course", payments_path(course: @course), class:"btn btn-primary", method: :post %>
+      <% else %>
+        <%= link_to "Sign up to subscribe to this course", new_user_registration_path, class:"btn btn-primary" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
