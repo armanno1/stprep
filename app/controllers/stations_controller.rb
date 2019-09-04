@@ -1,5 +1,6 @@
 class StationsController < ApplicationController
   before_action :set_station, only: [:edit, :update, :show, :destroy]
+  #before_action :user_has_parent_course, only: [:show]
   attr_accessor :course_id
 
   def index
@@ -11,6 +12,11 @@ class StationsController < ApplicationController
   end
 
   def show
+    stations_parent_course = @station.course.id if @station.course
+    if current_user.courses.find_by_id(stations_parent_course).nil?
+      flash[:danger] = "You are not subscribed to a course with this station"
+      redirect_to courses_path
+    end
   end
 
   def create
@@ -30,4 +36,11 @@ class StationsController < ApplicationController
   def set_station
     @station = Station.find(params[:id])
   end
+# def user_has_parent_course
+# stations_parent_course = station.course.id
+# if !current_user.course.find_by_id(station_parents_course).nil?
+#   flash[:danger] = "You are not subscribed to a course with this station"
+#   redirect_to courses_path
+# end
+# end
 end

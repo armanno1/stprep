@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :user_courses, only: [:create]
   get 'my_courses', to: 'courses#my_courses'
   resources :payments
+  mount StripeEvent::Engine, at: '/stripe-event'
 end
