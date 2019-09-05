@@ -4,9 +4,16 @@
     <div class="col-lg-3">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"><%= course.title %></h5>
+          <h5 class="card-title">
+            <%= course.title %><br />
+            <%= "<span class='badge badge-warning'>Subscribed</span>".html_safe if user_signed_in? && current_user.courses.find_by_id(course.id) %>
+          </h5>
           <p class="card-text"><%= course.description %></p>
+          <% if user_signed_in? && current_user.courses.find_by_id(course.id) %>
+          <%= link_to "Go to course", course_path(course), class: "btn btn-primary" %>
+          <% else %>
           <%= link_to "£#{course.price}", course_path(course), class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>
