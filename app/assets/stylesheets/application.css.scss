@@ -19,12 +19,15 @@ $font-family-base:Lato;
 $headings-font-family:Raleway;
 $enable-rounded: true;
 $theme-colors: (
-  "primary": #2E294E,
-  "danger": #ff4136
+  "primary": #EF476F,
+  "danger": #EF476F
 );
 
 /*
 #3A405A - nice dark blue (with green primary)
+#00B894 - original green primary
+#FED766 - really nice yellowy orange
+https://coolors.co/export/copic/00b894-26547c-ef476f-ffd166-fffcf9
 */
 
 @import "bootstrap";
@@ -33,12 +36,65 @@ body {
   background-color: #F7FCFF;
 }
 
+.alert.alert-success, .alert.alert-danger {
+  background: none;
+}
+
+#navbarSupportedContent .navbar-nav {
+  text-align: right;
+}
+
+.welcome-messages-container {
+  background-color: #00B894;
+}
+
 .container {
   padding-top: 20px;
 }
 
-nav#main-nav-bar {
-  background-color: #00b894;
+.jumbotron {
+  margin-top: -20px;
+  background-color: #00B894;
+  color: #FFF;
+  border-radius: 0;
+  background-image: url('bike_vector.svg');
+  background-repeat: no-repeat;
+  background-position: bottom 10px right 5%;
+  background-size: 35%;
+
+  .display-4 {
+    font-weight: bold;
+    font-size: 3em;
+  }
+}
+
+.welcome-section {
+  .container {
+    padding: 2em 1em;
+  }
+
+  h2 {
+    min-height: 50px;
+  }
+}
+
+footer {
+  .container {
+    .footer-link {
+      padding: 0 10px;
+      font-weight: bold;
+    }
+
+    .footer-link-left {
+      padding: 0 10px 0 20px;
+      font-weight: bold;
+    }
+  }
+}
+
+#main-nav-bar {
+  background-color: #00B894;
+  padding: 1.5em 2.5em 1.5em 2.5em;
 }
 
 nav#main-nav-bar .navbar-brand {
@@ -47,9 +103,28 @@ nav#main-nav-bar .navbar-brand {
 }
 
 nav#main-nav-bar #navbarSupportedContent .nav-item a {
+  font-weight: bold;
   color: #FFF;
 }
 
 nav#main-nav-bar #navbarSupportedContent .nav-item a:active {
   color: #FFF;
+}
+
+.card {
+  .card-body {
+
+    padding: 1em;
+
+    .card-title {
+      padding: none;
+      border: none;
+      background: none;
+      font-weight: bold;
+    }
+
+    p.card-body {
+      padding: none;
+    }
+  }
 }

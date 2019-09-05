@@ -1,13 +1,15 @@
+<% i = 1 %>
 <% @courses.each do |course| %>
-  <%= "<div class='row' style='padding-top: 30px;'>".html_safe if (course.id % 3 - 1 == 0) %>
-    <div class='col-md-4'>
+  <%= "<div class='row' style='padding-top: 30px;'>".html_safe if (i % 4 - 1 == 0) %>
+    <div class="col-lg-3">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-header"><%= course.title %></h5>
-          <p class="card-body"><%= course.description %></p>
+          <h5 class="card-title"><%= course.title %></h5>
+          <p class="card-text"><%= course.description %></p>
           <%= link_to "£#{course.price}", course_path(course), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
-  <%= "</div><!-- close row -->".html_safe if (course.id % 3 == 0) %>
+  <%= "</div><!-- close row -->".html_safe if (i % 4 == 0) %>
+  <% i += 1 %>
 <% end %>
