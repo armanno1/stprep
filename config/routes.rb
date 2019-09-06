@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  authenticate :user do
-    resources :courses, except: [:index, :show]
-  end
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "welcome#index"
-  resources :courses, :stations, :questions
-  resources :user_courses, only: [:create]
   get 'my_courses', to: 'courses#my_courses'
-  resources :payments
+  resources :courses, :stations, :questions, :payments
+  resources :user_courses, only: [:create]
+  resources :station_categories, except: [:destroy]
   mount StripeEvent::Engine, at: '/stripe-event'
 end

@@ -25,10 +25,16 @@ class StationsController < ApplicationController
 
   def create
     @station = Station.new(station_params)
+    course = Course.find_by_id(station_params[:course_id])
+#    if !course.station_categories.find_by_id(station_params[:station_category_id]) #course doesn't have that station_category id
+#      flash.now[:danger] = "Course #{course.title} doesn't have the station category id #{station_params[:station_category_id]}"
+#      render 'new'
     if @station.save
       flash[:success] = "Station created!"
-      redirect_to station_path(@station)
+      redirect_to course_path(@station.course)
+      #redirect_to stations_path(@station)
     else
+      @course = course
       render 'new'
     end
   end
@@ -55,7 +61,7 @@ class StationsController < ApplicationController
 
   private
   def station_params
-    params.require(:station).permit(:title, :description, :scenario, :course_id)
+    params.require(:station).permit(:title, :description, :scenario, :course_id, :station_category_id)
   end
 
   def set_station

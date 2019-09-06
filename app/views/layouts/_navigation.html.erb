@@ -24,10 +24,10 @@
           <%= link_to "Create Course", new_course_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Create Station", new_station_path, class: "nav-link" %>
+          <%= link_to "(Write Q)", new_question_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Write Q", new_question_path, class: "nav-link" %>
+          <%= link_to "New Station Category", new_station_category_path, class: "nav-link" %>
         </li>
       <% end %>
       <% if user_signed_in? && current_user.courses.any? %>

@@ -1,6 +1,17 @@
 <div class="row">
   <div class="col-sm-12">
     <%= form_for(@station, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <% if params[:course_id]%>
+        <% course = Course.find_by_id(params[:course_id]) %>
+        <% station_categories = course.station_categories.all %>
+      <% else %>
+        <% if @course %>
+          <% course = @course %>
+          <% station_categories = @course.station_categories.all %>
+        <% else %>
+          <% station_categories = StationCategory.all %>
+        <% end %>
+      <% end %>
 
     <div class="form-group">
       <div class='row'>
@@ -35,10 +46,23 @@
       </div>
     </div>
 
+    <% if course %>
+      <%= f.hidden_field :course_id, :value => "#{course.id}" %>
+      <p><%= "#{course.title} has been selected (!)" %></p>
+    <% else %>
+      <div class='form-group'>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= f.collection_select(:course_id, Course.all, :id, :title, {}, {:class=>'form-control'}) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <div class='form-group'>
       <div class="row">
         <div class="col-sm-12">
-          <%= f.collection_select(:course_id, Course.all, :id, :title, {}, {:class=>'form-control'}) %>
+          <%= f.collection_select(:station_category_id, station_categories, :id, :name, {}, {:class=>'form-control'}) %>
         </div>
       </div>
     </div>

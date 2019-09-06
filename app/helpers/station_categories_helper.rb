@@ -1,0 +1,2 @@
+module StationCategoriesHelper
+end

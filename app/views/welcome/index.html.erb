@@ -41,8 +41,8 @@
     </div>
       <% i = 1 %>
       <% @courses.each do |course| %>
-        <%= "<div class='row' style='padding-top: 30px;'>".html_safe if (i % 4 - 1 == 0) %>
-          <div class="col-sm-3">
+        <%= "<div class='row course-card-row'>".html_safe if (i % 4 - 1 == 0) %>
+          <div class="col-lg-3">
             <%= render "courses/course_card", obj: course %>
           </div>
           <% if (i % 4 == 0) || course.id == Course.last.id %>

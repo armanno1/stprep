@@ -1,33 +1,35 @@
 <div class="row">
-  <div class="col-md">
-    <% if user_signed_in? && current_user.courses.find_by_id(@course.id) %>
-    <h2><%= @course.title %></h2>
-      <% if @course.stations.any? %>
-        <ul class="list-group">
-          <% @course.stations.each do |station| %>
-          <li class="list-group-item">
-            <%= link_to station.title, station_path(station) %>
-            <span class="float-right button-group">
-              <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-primary"){} %>
-              <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-danger" ){} %>
-            </span>
-          </li>
-          <% end %>
-        </ul>
-      <% end %>
-    <% else %>
-      <h2><%= @course.title %></h2>
+  <div class="col-lg">
+    <h2 style="padding-bottom: 0.3em;"><%= @course.title %></h2>
+    <%= link_to_if(current_user.admin?, 'Create Station for this course', new_station_path(:course_id => @course.id), class: "btn btn-warning mb-3" ){} %>
+    <br />
+
+      <!-- stations listed by station_category -->
+  <% if user_signed_in? && current_user.courses.find_by_id(@course.id) %>
+    <% if @course.station_categories.any? %>
       <ul class="list-group">
-        <li class="list-group-item"><strong>Desc:</strong> <%= @course.description %></li>
-        <li class="list-group-item"><strong>Category:</strong> <%= @course.category %></li>
-        <li class="list-group-item"><strong>Price:</strong> <%= "£" + "#{@course.price}" %></li>
+        <% @course.station_categories.each do |station_category| %>
+        <li class="list-group-item">
+          <strong><%= station_category.name %></strong>
+        </li>
+          <% if station_category.stations.any? %>
+            <% station_category.stations.each do |station| %>
+              <li class="list-group-item">
+                <%= link_to station.title, station_path(station) %>
+                <span class="float-right button-group">
+                  <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-primary"){} %>
+                  <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-danger" ){} %>
+                </span>
+              </li>
+            <% end %>
+          <% end %>
+        <% end %>
       </ul>
-      <br />
-      <% if user_signed_in? %>
-        <%= link_to "Sign up for this course", payments_path(course: @course), class:"btn btn-primary", method: :post %>
-      <% else %>
-        <%= link_to "Sign up to subscribe to this course", new_user_registration_path, class:"btn btn-primary" %>
-      <% end %>
+    <% end %>
+    <% else %>
+
+      <%= render '_course_description_and_signup' %>
+
     <% end %>
   </div>
 </div>

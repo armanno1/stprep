@@ -1,0 +1,15 @@
+<% if user_signed_in? && current_user.courses.find_by_id(@course.id) %>
+<h2><%= @course.title %></h2>
+  <% if @course.stations.any? %>
+    <ul class="list-group">
+      <% @course.stations.each do |station| %>
+      <li class="list-group-item">
+        <%= link_to station.title, station_path(station) %>
+        <span class="float-right button-group">
+          <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-primary"){} %>
+          <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-danger" ){} %>
+        </span>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>

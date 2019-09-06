@@ -1,6 +1,6 @@
 <% i = 1 %>
 <% @courses.each do |course| %>
-  <%= "<div class='row' style='padding-top: 30px;'>".html_safe if (i % 4 - 1 == 0) %>
+  <%= "<div class='row course-card-row'>".html_safe if (i % 4 - 1 == 0) %>
     <div class="col-lg-3">
       <%= render "course_card", obj: course %>
     </div>
