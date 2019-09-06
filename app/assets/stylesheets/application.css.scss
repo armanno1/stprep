@@ -69,13 +69,19 @@ body {
 }
 
 .welcome-section {
+
   .container {
-    padding: 2em 1em;
+    padding: 3em 1em 2em 1em;
   }
 
   h2 {
     min-height: 50px;
+    font-weight: bold;
+    color: #26547C;
   }
+}
+
+.welcome-texture {
 }
 
 footer {
@@ -125,6 +131,30 @@ nav#main-nav-bar #navbarSupportedContent .nav-item a:active {
 
     p.card-body {
       padding: none;
+    }
+  }
+}
+
+#scenario-card {
+  .card-body {
+    padding-left: 2em;
+  }
+}
+
+#scenario-accordion {
+
+  .card-body {
+    padding-left: 2.2em;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .card {
+    .card-header {
+      padding-left: 2em;
     }
   }
 }

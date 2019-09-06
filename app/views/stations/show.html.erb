@@ -1,6 +1,34 @@
 <h2><%= @station.title %></h2>
-<p><%= @station.scenario %></p>
+
+<div id="scenario-card" class="card mb-4 mt-3 p-2">
+    <div class="card-body">
+          <p class="lead mb-0"><%= @station.scenario %></p>
+    </div>
+</div>
+
+<div class="accordion" id="scenario-accordion">
+
 <% @station.questions.each do |question| %>
-<p><%= question.title %></p>
-<p><%= question.answer %></p>
+
+  <!-- Start collapse group -->
+    <div class="card">
+        <div class="card-header" id="heading<%= "#{question.id}".html_safe %>">
+            <h2 class="mb-0">
+                <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapse<%= "#{question.id}".html_safe %>">
+                  <%= question.title %>
+                </button>
+            </h2>
+        </div>
+        <div id="collapse<%= "#{question.id}".html_safe %>" class="collapse" aria-labelledby="heading<%= "#{question.id}".html_safe %>" data-parent="#scenario-accordion">
+            <div class="card-body">
+                <p><%= question.answer %></p>
+            </div>
+        </div>
+    </div>
+  <!-- End collapse group -->
+
 <% end %>
+
+<p class='my-4'><%= link_to "Back to course home", course_path(@station.course), class: "btn btn-primary" %></p>
+
+</div>

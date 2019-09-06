@@ -1,15 +1,9 @@
-<div class="row">
-  <div class="col-md">
-    <ul class="list-group">
-      <% @courses.each do |course| %>
-      <li class="list-group-item">
-        <%= link_to course.title, course_path(course) %>
-        <span class="float-right button-group">
-          <%= link_to_if(current_user.admin?, 'Edit', edit_course_path(course), class: "btn btn-sm btn-primary"){} %>
-          <%= link_to_if(current_user.admin?, 'Delete', course_path(course), method: :delete, class: "btn btn-sm btn-danger" ){} %>
-        </span>
-       </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<% i = 1 %>
+<% @courses.each do |course| %>
+  <%= "<div class='row' style='padding-top: 30px;'>".html_safe if (i % 4 - 1 == 0) %>
+    <div class="col-lg-3">
+      <%= render "course_card", obj: course %>
+    </div>
+  <%= "</div><!-- close row -->".html_safe if (i % 4 == 0) %>
+  <% i += 1 %>
+<% end %>

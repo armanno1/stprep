@@ -14,6 +14,9 @@ class StationsController < ApplicationController
   def show
     if @station.questions.any?
       @questions = @station.questions
+    elsif current_user.admin?
+      flash[:danger] = "This station has no questions: write a question for it now"
+      redirect_to new_question_path(@station)
     else
       flash[:danger] = "This station hasn't got any questions yet..."
       redirect_to courses_path(@station.course)
@@ -30,9 +33,29 @@ class StationsController < ApplicationController
     end
   end
 
+  def update
+    if @station.update(station_params)
+      flash[:success] = "Station was successfully updated."
+      redirect_to station_path(@station)
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    station = Station.find(params[:id])
+    if station.destroy
+      flash[:success] = "Station has been deleted"
+      redirect_to course_path(station.course)
+    else
+      flash[:danger] = "Problem deleting station"
+      redirect_to course_path(station.course)
+    end
+  end
+
   private
   def station_params
-    params.require(:station).permit(:title, :description, :scenario, :answer, :course_id)
+    params.require(:station).permit(:title, :description, :scenario, :course_id)
   end
 
   def set_station
