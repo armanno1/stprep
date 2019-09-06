@@ -9,6 +9,11 @@ class StationsController < ApplicationController
 
   def new
     @station = Station.new
+    course = Course.find_by_id(params[:course_id]) if params[:course_id]
+    if params[:course_id] && !course.station_categories.any?
+      flash[:danger] = "#{course.title} doesn't have any station categories, create one:"
+      redirect_to new_station_category_path
+    end
   end
 
   def show
@@ -16,7 +21,7 @@ class StationsController < ApplicationController
       @questions = @station.questions
     elsif current_user.admin?
       flash[:danger] = "This station has no questions: write a question for it now"
-      redirect_to new_question_path(@station)
+      redirect_to new_question_path(:station_id => @station.id)
     else
       flash[:danger] = "This station hasn't got any questions yet..."
       redirect_to courses_path(@station.course)
@@ -26,13 +31,9 @@ class StationsController < ApplicationController
   def create
     @station = Station.new(station_params)
     course = Course.find_by_id(station_params[:course_id])
-#    if !course.station_categories.find_by_id(station_params[:station_category_id]) #course doesn't have that station_category id
-#      flash.now[:danger] = "Course #{course.title} doesn't have the station category id #{station_params[:station_category_id]}"
-#      render 'new'
     if @station.save
       flash[:success] = "Station created!"
       redirect_to course_path(@station.course)
-      #redirect_to stations_path(@station)
     else
       @course = course
       render 'new'

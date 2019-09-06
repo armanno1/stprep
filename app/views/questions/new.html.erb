@@ -1,5 +1,10 @@
 <%= render 'shared/errors', obj: @question %>
 
+<%= "<h2>Question for: #{Station.find_by_id(params[:station_id]).title}</h2>".html_safe if params[:station_id] %>
+<% if params.has_key?(:question) %>
+  <%= "<h2>Question for: #{Station.find_by_id(params[:question][:station_id]).title}</h2>".html_safe %>
+<% end %>
+
 <%= form_for(@question, :html => {class: "form-horizontal", role: "form"}) do |f| %>
   <div class="form-group">
     <div class='row'>
@@ -26,7 +31,13 @@
   <div class='form-group'>
     <div class='row'>
       <div class='col-md-12'>
-        <%= f.collection_select(:station_id, Station.all, :id, :title, {}, {:class => 'form-control'}) %>
+        <% if params[:station_id] %>
+          <%= f.hidden_field :station_id, :value => params[:station_id] %>
+        <% elsif params[:question][:station_id] %>
+          <%= f.hidden_field :station_id, :value => params[:question][:station_id] %>
+        <% else %>
+          <%= f.collection_select(:station_id, Station.all, :id, :title, {}, {:class => 'form-control'}) %>
+        <% end %>
       </div>
     </div>
   </div>

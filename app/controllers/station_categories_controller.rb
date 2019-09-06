@@ -11,7 +11,7 @@ class StationCategoriesController < ApplicationController
     @station_category = StationCategory.new(station_category_params)
     if @station_category.save
       flash[:success] = "Station category was created successfully"
-      redirect_to station_categories_path
+      redirect_to course_path(@station_category.course)
     else
       render 'new'
     end

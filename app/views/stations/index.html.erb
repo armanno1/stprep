@@ -1,6 +1,12 @@
-<h1>Station index</h1>
-<% @stations.each do |station| %>
-  <p><%= station.title %></p>
-  <p><%= station.description %></p>
-  <p><%= station.scenario %></p>
-<% end %>
+<div class='container'>
+  <div class='row'>
+    <div clas='col-md-12'>
+      <h2>Station index</h2>
+      <ul class="list-group">
+        <% @stations.each do |station| %>
+        <li class="list-group-item"><%= station.title %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

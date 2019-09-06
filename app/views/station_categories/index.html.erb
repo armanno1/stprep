@@ -1,9 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <h2>Station Categories</h2>
+      <ul class='list-group'>
       <% @station_categories.each do |station_category| %>
-        <p><%= station_category.name %> <strong>belongs to: </strong><%= station_category.course.title if station_category.course %></p>
+        <li class='list-group-item'><%= station_category.name %> <strong>belongs to: </strong><%= station_category.course.title if station_category.course %></li>
       <% end %>
+      </ul>
     </div>
   </div>
 </div>
