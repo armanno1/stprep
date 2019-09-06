@@ -10,6 +10,10 @@
         <% @course.station_categories.each do |station_category| %>
         <li class="list-group-item">
           <strong><%= station_category.name %></strong>
+          <span class="float-right button-group">
+            <%= link_to_if(current_user.admin?, 'Edit', edit_station_category_path(station_category), class: "btn btn-sm btn-primary"){} %>
+            <%= link_to_if(current_user.admin?, 'Delete', station_category_path(station_category), method: :delete, class: "btn btn-sm btn-danger" ){} %>
+          </span>
         </li>
           <% if station_category.stations.any? %>
             <% station_category.stations.each do |station| %>

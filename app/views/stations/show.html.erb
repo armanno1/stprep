@@ -1,6 +1,6 @@
 <h2><%= @station.title %></h2>
 
-<%= link_to_if(current_user.admin?, 'Create Station for this course', new_question_path(:station_id => @station.id), class: "btn btn-warning mb-3" ){} %>
+<%= link_to_if(current_user.admin?, 'Create Q for this station', new_question_path(:station_id => @station.id), class: "btn btn-warning mb-3" ){} %>
 
 <div id="scenario-card" class="card mb-4 mt-3 p-2">
     <div class="card-body">
