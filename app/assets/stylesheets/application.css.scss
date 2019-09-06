@@ -54,10 +54,10 @@ body {
 
 .jumbotron {
   margin-top: -20px;
-  background-color: #00B894;
   color: #FFF;
   border-radius: 0;
-  background-image: url('bike_vector.svg');
+  background: image-url('bike_vector.svg');
+  background-color: #00B894;
   background-repeat: no-repeat;
   background-position: bottom 10px right 5%;
   background-size: 35%;
