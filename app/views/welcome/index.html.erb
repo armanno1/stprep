@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-sm-8">
         <h1 class="display-4">Prepare for UK specialty interviews!</h1>
         <p class="lead">Get access to curated <strong>core and specialty training</strong> interview courses for UK medical graduates. Designed to kick start your specialty career.</p>
         <p class="lead" style="padding: 20px 0 0;">
@@ -16,15 +16,15 @@
 <div class="welcome-section welcome-texture">
   <div class="container">
     <div class="row px-5">
-      <div class="col-md-4 px-3 text-center">
+      <div class="col-sm-4 px-3 text-center">
         <h2>Curated</h2>
         <p>Our stations are written based on recent example themes or high yield topics, by successful applicants.</p>
       </div>
-      <div class="col-md-4 px-3 text-center">
+      <div class="col-sm-4 px-3 text-center">
         <h2>High yield</h2>
         <p>Stations are designed to provide maximum benefit for minimum effort</p>
       </div>
-      <div class="col-md-4 px-3 text-center">
+      <div class="col-sm-4 px-3 text-center">
         <h2>6 months access</h2>
         <p>Get access for up to 6 months before</p>
       </div>
@@ -35,14 +35,14 @@
 <div class="welcome-section">
   <div class="container">
     <div class="row">
-      <div class='col-md-12 text-center'>
+      <div class='col-sm-12 text-center'>
         <h2>Check out our most recent courses:</h2>
       </div>
     </div>
       <% i = 1 %>
       <% @courses.each do |course| %>
         <%= "<div class='row' style='padding-top: 30px;'>".html_safe if (i % 4 - 1 == 0) %>
-          <div class="col-lg-3">
+          <div class="col-sm-3">
             <%= render "courses/course_card", obj: course %>
           </div>
           <% if (i % 4 == 0) || course.id == Course.last.id %>
@@ -57,10 +57,10 @@
   <div class="container">
     <!-- Three columns of text below the carousel -->
     <div class="row px-5">
-      <div class='col-md-4 align-self-center'>
+      <div class='col-sm-4 align-self-center'>
         <h2 class=''>Testimonials from previous students</h2>
       </div>
-      <div class='col-md-8 text-center'>
+      <div class='col-sm-8 text-center'>
         <p class='lead'>"Lorem ipsum dolor sit amet, Morbi malesuada lacus diam, nec dictum purus congue eu. Integer consequat erat mauris, in tincidunt purus vulputate quis. Vivamus dapibus odio nec magna euismod mollis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam feugiat metus eros, vel pretium dui ultricies ut. Vestibulum fringilla eros id neque luctus consequat. Integer non fringilla mi.""</p>
       </div>
     </div><!-- /.row -->
