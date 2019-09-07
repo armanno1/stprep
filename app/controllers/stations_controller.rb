@@ -19,12 +19,11 @@ class StationsController < ApplicationController
   def show
     if @station.questions.any?
       @questions = @station.questions
-    elsif current_user.admin?
-      flash[:danger] = "This station has no questions: write a question for it now"
-      redirect_to new_question_path(:station_id => @station.id)
+#    elsif current_user.admin?
+#      flash[:danger] = "This station has no questions: write a question for it now"
+#      redirect_to new_question_path(:station_id => @station.id)
     else
-      flash[:danger] = "This station hasn't got any questions yet..."
-      redirect_to courses_path(@station.course)
+      flash[:danger] = "This station hasn't got any questions yet... Take a look at some of these trial stations below!"
     end
   end
 
