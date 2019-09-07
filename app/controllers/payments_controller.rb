@@ -14,8 +14,8 @@ class PaymentsController < ApplicationController
         currency: 'gbp',
         quantity: 1,
       }],
-      success_url: 'https://stprep.herokuapp.com/courses/',
-      cancel_url: 'https://stprep.herokuapp.com/courses/',
+      success_url: 'https://stprep.com/courses/',
+      cancel_url: 'https://stprep.com/courses/',
     })
     render 'new' if !!@session.id
   end
