@@ -15,8 +15,10 @@
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:200,300,400,700);
 $font-family-base:Lato;
+
 @import url(https://fonts.googleapis.com/css?family=Raleway:200,300,400,700);
-$headings-font-family:Raleway;
+@import url(https://use.typekit.net/sqd2nji.css);
+$headings-font-family:proxima-nova;
 $enable-rounded: true;
 $theme-colors: (
   "primary": #EF476F,
@@ -64,8 +66,9 @@ body {
   background-size: 35%;
 
   .display-4 {
-    font-weight: bold;
-    font-size: 3em;
+    font-weight: 700;
+    font-size: 3.4em;
+    letter-spacing: -0.5px;
   }
 }
 
@@ -118,7 +121,7 @@ nav#main-nav-bar #navbarSupportedContent .nav-item a:active {
   color: #FFF;
 }
 
-.card {  
+.card {
   .card-body {
 
     padding: 1em;
