@@ -35,3 +35,8 @@ function scrollFunction() {
     document.getElementById("main-nav-bar").style.background = "#00B894";
   }
 }
+
+$(document).on('turbolinks:load', function() {
+  var $svg = $("svg").drawsvg();
+  $svg.drawsvg("animate");
+})

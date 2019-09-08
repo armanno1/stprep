@@ -69,6 +69,7 @@ body {
     font-weight: 700;
     font-size: 3.4em;
     letter-spacing: -0.5px;
+    line-height: .9em;
   }
 }
 
@@ -176,5 +177,12 @@ nav#main-nav-bar #navbarSupportedContent .nav-item a:active {
   }
   .course-card-row {
     padding-top: 0;
+  }
+}
+
+.svg-wrapper {
+  #svg-chart, #svg-academic, #svg-tablet {
+    width: 5em;
+    stroke: #26547C;
   }
 }
