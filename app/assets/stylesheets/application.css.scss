@@ -108,19 +108,43 @@ footer {
   padding: 1.5em 2.5em 1.5em 2.5em;
 }
 
-nav#main-nav-bar .navbar-brand {
-  font-weight: bold;
-  color: #FFF;
+#main-nav-bar {
+  .navbar-brand {
+    font-weight: bold;
+    color: #FFF;
+    font-size: 1.4em;
+  }
+  #navbarSupportedContent {
+    ul.navbar-nav {
+      .nav-item {
+        a {
+          font-weight: bold;
+          color: #FFF;
+          font-size: 1.1em;
+          display: inline-block;
+          position: relative;
+        }
+        a:after {
+          background: none repeat scroll 0 0 transparent;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: 4px;
+          left: 50%;
+          position: absolute;
+          background: #fff;
+          transition: width 0.3s ease 0s, left 0.3s ease 0s;
+          width: 0;
+        }
+        a:hover:after {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
 }
 
-nav#main-nav-bar #navbarSupportedContent .nav-item a {
-  font-weight: bold;
-  color: #FFF;
-}
-
-nav#main-nav-bar #navbarSupportedContent .nav-item a:active {
-  color: #FFF;
-}
 
 .card {
   .card-body {
@@ -182,7 +206,7 @@ nav#main-nav-bar #navbarSupportedContent .nav-item a:active {
 
 .svg-wrapper {
   #svg-chart, #svg-academic, #svg-tablet {
-    width: 5em;
+    width: 6em;
     stroke: #26547C;
   }
 }
