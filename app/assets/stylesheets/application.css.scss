@@ -122,19 +122,16 @@ footer {
     color: #FFF;
     font-size: 1.4em;
   }
-  #navbarSupportedContent {
+  .navbar-collapse {
     ul.navbar-nav {
       .nav-item {
         a {
           font-weight: bold;
           color: #FFF;
           font-size: 1.1em;
-          display: inline-block;
-          position: relative;
-          border-radius: 0.6em;
         }
         a:hover {
-          background: #EF476F;
+          color: #EF476F;
         }
       }
     }
@@ -171,7 +168,6 @@ footer {
 }
 
 #scenario-accordion {
-
   .card-body {
     padding-left: 2.2em;
 
