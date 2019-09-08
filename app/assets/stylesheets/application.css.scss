@@ -43,6 +43,10 @@ body {
   background: none;
 }
 
+.btn {
+  border-radius: 0.6em;
+}
+
 #navbarSupportedContent .navbar-nav {
   text-align: right;
 }
@@ -70,6 +74,10 @@ body {
     font-size: 3.4em;
     letter-spacing: -0.5px;
     line-height: .9em;
+  }
+
+  a.btn {
+    font-weight: bold;
   }
 }
 
@@ -123,22 +131,10 @@ footer {
           font-size: 1.1em;
           display: inline-block;
           position: relative;
+          border-radius: 0.6em;
         }
-        a:after {
-          background: none repeat scroll 0 0 transparent;
-          bottom: 0;
-          content: "";
-          display: block;
-          height: 4px;
-          left: 50%;
-          position: absolute;
-          background: #fff;
-          transition: width 0.3s ease 0s, left 0.3s ease 0s;
-          width: 0;
-        }
-        a:hover:after {
-          width: 100%;
-          left: 0;
+        a:hover {
+          background: #EF476F;
         }
       }
     }
