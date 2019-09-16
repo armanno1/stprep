@@ -1,9 +1,18 @@
 <div class="row">
   <div class="col-lg">
     <h2 style="padding-bottom: 0.3em;"><%= @course.title %></h2>
-    <%= link_to_if(current_user.admin?, 'Create Station for this course', new_station_path(:course_id => @course.id), class: "btn btn-warning mb-3" ){} %>
-    <%= link_to_if(current_user.admin?, 'Create Station Category for this course', new_station_category_path(:course_id => @course.id), class: "btn btn-warning mb-3" ){} %>
-      <!-- stations listed by station_category -->
+    <%= link_to_if(current_user.admin?, 'Create a category for this course', new_station_category_path(:course_id => @course.id), class: "btn btn-warning mb-3" ){} %>
+    <% link_to_if(current_user.admin?, 'Create Station for this course', new_station_path(:course_id => @course.id), class: "btn btn-warning mb-3" ){} %>
+      <button type="button" class="btn btn-primary dropdown-toggle mb-3" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Create station for..<span class="caret"></span>
+      </button>
+      <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuButton">
+        <% @course.station_categories.each do |sc| %>
+        <%= link_to sc.name, new_station_path(:course_id => @course.id, :station_category_id => sc.id), class: "dropdown-item" %>
+        <% end %>
+      </div>
+
+  <!-- stations listed by station_category -->
   <% if user_signed_in? && current_user.courses.find_by_id(@course.id) %>
     <% if @course.station_categories.any? %>
       <ul class="list-group">

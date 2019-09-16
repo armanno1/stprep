@@ -23,7 +23,7 @@ class StationsController < ApplicationController
 #      flash[:danger] = "This station has no questions: write a question for it now"
 #      redirect_to new_question_path(:station_id => @station.id)
     else
-      flash[:danger] = "This station hasn't got any questions yet... Take a look at some of these trial stations below!"
+      flash.now[:danger] = "This station hasn't got any questions yet... Take a look at some of these trial stations below!"
     end
   end
 

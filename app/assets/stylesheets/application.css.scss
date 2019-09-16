@@ -14,11 +14,10 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:200,300,400,700);
-$font-family-base:Lato;
-
 @import url(https://fonts.googleapis.com/css?family=Raleway:200,300,400,700);
 @import url(https://use.typekit.net/sqd2nji.css);
-$headings-font-family:proxima-nova;
+$font-family-base:Lato;
+$headings-font-family:houschka-rounded;
 $enable-rounded: true;
 $theme-colors: (
   "primary": #EF476F,
@@ -43,8 +42,10 @@ body {
   background: none;
 }
 
-.btn {
-  border-radius: 0.6em;
+#main-nav-bar {
+  #main-logo {
+    height: 2.3em;
+  }
 }
 
 #navbarSupportedContent .navbar-nav {
@@ -78,6 +79,7 @@ body {
 
   a.btn {
     font-weight: bold;
+    border-radius: 3em;
   }
 }
 

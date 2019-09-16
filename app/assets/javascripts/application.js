@@ -24,15 +24,12 @@
 //    });
 //}, 2000);
 
-window.onscroll = function() {scrollFunction()};
+//window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("main-nav-bar").style.padding = "1em";
-    document.getElementById("main-nav-bar").style.background = "#00A382";
   } else {
     document.getElementById("main-nav-bar").style.padding = "1.5em 2.5em 1.5em 2.5em";
-    document.getElementById("main-nav-bar").style.background = "#00B894";
   }
 }
 
