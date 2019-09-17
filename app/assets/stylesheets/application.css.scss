@@ -112,7 +112,7 @@ footer {
 
 #main-nav-bar {
   background-color: #00B894;
-  padding: 1em 1.8em;
+  padding: 1.4em 2.2em;
 }
 
 #main-nav-bar {
@@ -170,7 +170,7 @@ footer {
 }
 
 .card.course-card:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.06), 0 10px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.04), 0 10px 10px rgba(0,0,0,0.04);
 }
 
 .course-card-row {
@@ -217,4 +217,44 @@ footer {
     width: 6em;
     stroke: #26547C;
   }
+}
+
+.icon-bar {
+	width: 22px;
+	height: 2px;
+	background-color: #FFF;
+	display: block;
+	transition: all 0.2s;
+	margin-top: 4px
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent !important;
+}
+
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
 }
