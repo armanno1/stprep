@@ -1,6 +1,5 @@
 <ul class="list-group">
-  <li class="list-group-item"><strong>Desc:</strong> <%= @course.description %></li>
-  <li class="list-group-item"><strong>Category:</strong> <%= @course.category %></li>
+  <li class="list-group-item"><strong>Description:</strong> <%= @course.description %></li>
   <li class="list-group-item"><strong>Price:</strong> <%= "£" + "#{@course.price}" %></li>
 </ul>
 <br />
@@ -9,3 +8,4 @@
 <% else %>
   <%= link_to "Sign up to subscribe to this course", new_user_registration_path, class:"btn btn-primary" %>
 <% end %>
+  <%= link_to "Back", courses_path, class:"btn btn-primary" %>

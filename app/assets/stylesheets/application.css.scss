@@ -23,7 +23,6 @@ $theme-colors: (
   "primary": #EF476F,
   "danger": #EF476F
 );
-
 /*
 #3A405A - nice dark blue (with green primary)
 #00B894 - original green primary
@@ -35,7 +34,7 @@ https://coolors.co/export/copic/00b894-26547c-ef476f-ffd166-fffcf9
 
 body {
   background-color: #F7FCFF;
-  padding-top: 80px;
+  padding-top: 70px;
 }
 
 .alert.alert-success, .alert.alert-danger {
@@ -44,7 +43,7 @@ body {
 
 #main-nav-bar {
   #main-logo {
-    height: 2.3em;
+    height: 2em;
   }
 }
 
@@ -57,18 +56,19 @@ body {
 }
 
 .container {
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .jumbotron {
-  margin-top: -20px;
+  margin-top: -30px;
   color: #FFF;
   border-radius: 0;
-  background: image-url('bike_vector.svg');
+  background: image-url('kitesurfing.svg');
   background-color: #00B894;
   background-repeat: no-repeat;
-  background-position: bottom 10px right 5%;
-  background-size: 35%;
+  background-position: top 50% right 5%;
+  background-size: 50%;
+  margin-bottom: 3em;
 
   .display-4 {
     font-weight: 700;
@@ -86,7 +86,7 @@ body {
 .welcome-section {
 
   .container {
-    padding: 3em 1em 2em 1em;
+    padding: 4em 3em;
   }
 
   h2 {
@@ -94,9 +94,6 @@ body {
     font-weight: bold;
     color: #26547C;
   }
-}
-
-.welcome-texture {
 }
 
 footer {
@@ -115,7 +112,7 @@ footer {
 
 #main-nav-bar {
   background-color: #00B894;
-  padding: 1.5em 2.5em 1.5em 2.5em;
+  padding: 1em 1.8em;
 }
 
 #main-nav-bar {
@@ -140,23 +137,40 @@ footer {
   }
 }
 
+.card.course-card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.08);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  border: none;
 
-.card {
-  .card-body {
+  h5.card-header {
+    font-weight: bold;
+    font-size: 1.2em;
+    background: none;
+    border-bottom: none;
+    padding-bottom: 0;
 
-    padding: 1em;
-
-    .card-title {
-      padding: none;
-      border: none;
-      background: none;
-      font-weight: bold;
+    .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
     }
+  }
+
+  .card-body {
+    padding: 1em 1.2em;
 
     p.card-body {
       padding: none;
     }
   }
+
+  .card-footer {
+    background: none;
+  }
+}
+
+.card.course-card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.06), 0 10px 10px rgba(0,0,0,0.06);
 }
 
 .course-card-row {
