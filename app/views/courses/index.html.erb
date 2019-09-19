@@ -7,3 +7,7 @@
   <%= "</div><!-- close row -->".html_safe if (i % 4 == 0) %>
   <% i += 1 %>
 <% end %>
+
+<div>
+<%= params[:session_id] if params[:session_id].present? %>
+</div>
