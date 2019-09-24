@@ -321,3 +321,44 @@ footer {
 .navbar-toggler.collapsed .bottom-bar {
   transform: rotate(0);
 }
+
+.course-header {
+    background: #EBEFF3;
+    margin-top: -14px;
+    padding: 1.5em 2em;
+    color: #26547C;
+    h4 {
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+}
+
+.course-show {
+  .list-group {
+
+    .station-header {
+      transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
+    }
+
+    .station-header:hover {
+      background: #EBEFF3;
+      transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
+    }
+
+    .list-group-item {
+      border: 1px solid #EBEFF3;
+      font-size: 1.2em;
+      padding: 0.6em 1.4em;
+      a {
+        color: #26547C;
+      }
+    }
+    .station-category-header {
+      background: #26547C;
+      color: #EBEFF3;
+      padding: 0.6em 1em;
+      border: none;
+    }
+  }
+}

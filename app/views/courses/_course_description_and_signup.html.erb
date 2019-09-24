@@ -8,6 +8,6 @@
 </div>
 <div class='row mt-3'>
   <div class='col-sm-12'>
-    <button type="button" class="btn btn-primary" id="pay-button" onclick="myFunction();">Sign up for £<%= @course.price %></button>
+    <%= link_to "Sign up for this course", payments_path(course: @course), :method => :post %>
   </div>
 </div>

@@ -10,7 +10,7 @@
       <% if user_signed_in? && current_user.courses.find_by_id(obj.id) %>
         <%= link_to "Go to course", course_path(obj), class: "btn btn-primary" %>
       <% else %>
-        <%= link_to "£#{obj.price}", payments_path(course: obj), class:"btn btn-primary", method: :post %>
+        <%= link_to "£#{obj.price}", course_path(obj), class:"btn btn-primary" %>
       <% end %>
       <% if user_signed_in? && current_user.admin? %>
       <div>

@@ -1,41 +1,46 @@
-<div class="row">
-  <div class="col-lg">
-    <h2 style="padding-bottom: 0.3em;"><%= @course.title %></h2>
-    <%= link_to_if(current_user.admin?, 'Create a category for this course', new_station_category_path(:course_id => @course.id), class: "btn btn-warning mb-3" ){} %>
-    <% link_to_if(current_user.admin?, 'Create Station for this course', new_station_path(:course_id => @course.id), class: "btn btn-warning mb-3" ){} %>
-      <button type="button" class="btn btn-primary dropdown-toggle mb-3" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Create station for..<span class="caret"></span>
-      </button>
-      <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuButton">
-        <% @course.station_categories.each do |sc| %>
-        <%= link_to sc.name, new_station_path(:course_id => @course.id, :station_category_id => sc.id), class: "dropdown-item" %>
-        <% end %>
-      </div>
+</div>
+<div class='course-header'>
+  <div class='row'>
+    <div class='col-lg-8 offset-lg-2'>
+      <h4>
+        <%= @course.title %><%= "<span class='badge badge-warning ml-3'>Subscribed</span>".html_safe if user_signed_in? && current_user.courses.find_by_id(@course.id) %>
 
-  <!-- stations listed by station_category -->
-    <% if @course.station_categories.any? %>
-      <ul class="list-group">
+      </h4>
+    </div>
+  </div>
+</div>
+<div class="container">
+<div class="row course-show">
+  <div class="col-lg-8 offset-lg-1">
+    <% if has_course(current_user, @course) %>
+      <%= render 'admin_panel' if current_user.admin? %>
+      <!-- stations listed by station_category -->
+      <% if @course.station_categories.any? %>
         <% @course.station_categories.each do |station_category| %>
-        <li class="list-group-item">
-          <strong><%= station_category.name %></strong>
-          <span class="float-right button-group">
-            <%= link_to_if(current_user.admin?, 'Edit', edit_station_category_path(station_category), class: "btn btn-sm btn-primary"){} %>
-            <%= link_to_if(current_user.admin?, 'Delete', station_category_path(station_category), method: :delete, class: "btn btn-sm btn-danger" ){} %>
-          </span>
-        </li>
-          <% if station_category.stations.any? %>
-            <% station_category.stations.each do |station| %>
-              <li class="list-group-item">
-                <%= link_to station.title, station_path(station) %>
-                <span class="float-right button-group">
-                  <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-primary"){} %>
-                  <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-danger" ){} %>
-                </span>
-              </li>
+          <ul class="list-group mb-3">
+            <li class="list-group-item station-category-header">
+              <strong><%= station_category.name %></strong>
+              <span class="float-right button-group">
+                <%= link_to_if(current_user.admin?, 'Edit', edit_station_category_path(station_category), class: "btn btn-sm btn-primary"){} %>
+                <%= link_to_if(current_user.admin?, 'Delete', station_category_path(station_category), method: :delete, class: "btn btn-sm btn-danger" ){} %>
+              </span>
+            </li>
+            <% if station_category.stations.any? %>
+              <% station_category.stations.each do |station| %>
+                <li class="list-group-item station-header">
+                  <%= link_to station.title, station_path(station) %>
+                  <span class="float-right button-group">
+                    <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-primary"){} %>
+                    <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-danger" ){} %>
+                  </span>
+                </li>
+              <% end %>
             <% end %>
-          <% end %>
+          </ul>
         <% end %>
-      </ul>
-    <% end %>
+      <% end %>
+    <% else %>
+      <%= render "course_description_and_signup" %>
+    <%end%>
   </div>
 </div>
