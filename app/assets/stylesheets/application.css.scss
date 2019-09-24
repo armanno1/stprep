@@ -92,8 +92,7 @@ nav {
     border-bottom: 4px solid #EF476F;
     background: #204566;
     padding-top: 1em;
-    padding-bottom: 0.5em;
-
+    padding-bottom: 0.2em;
 
     .carousel-header {
       a {
@@ -112,39 +111,21 @@ nav {
       background: #EF476F;
       width: 66%;
     }
+  }
+}
 
-    .card.course-card {
-      margin: 0 3.5em;
-      color: #FFF;
-      background: #204566;
-      border: 1px solid transparent;
-      border-radius: 0.5em;
-      text-align: center;
-
-      h5.card-header {
-        font-size: 1.6em;
-        background: none;
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-
-      .card-footer {
-        background: none;
-        border: none;
-        padding-bottom: 1em;
-      }
-    }
+@include media-breakpoint-down(lg) {
+  .carousel-container .text-right, .carousel-container .text-right h2 {
+    text-align: center !important;
+    font-size: 20pt;
   }
 
-  @include media-breakpoint-down(md) {
-    .text-right {
-      text-align: center !important;
-    }
+  #carousel-main .carousel-header {
+    font-size: 20pt;
   }
 }
 
 .welcome-section {
-
   .container {
     padding: 4em 3em;
   }

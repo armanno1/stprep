@@ -33,7 +33,7 @@
 //  }
 //}
 
-$(document).on('turbolinks:load', function() {
-  var $svg = $("svg").drawsvg();
-  $svg.drawsvg("animate");
-})
+//$(document).on('turbolinks:load', function() {
+//  var $svg = $("svg").drawsvg();
+//  $svg.drawsvg("animate");
+//})
