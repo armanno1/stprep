@@ -5,24 +5,17 @@
         <h1 class="display-4"><span class='emphasis'>Prepare</span> for UK Specialty Interviews</h1>
       </div>
     </div>
-    <div class="row">
+    <div class="row carousel-container">
       <div class='col-lg-5 text-right align-self-center'>
         <h2>I'm applying for...</h2>
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-6">
         <div id="carousel-main" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <% @courses.each do |course| %>
               <div class="carousel-item<%= " active".html_safe if course == @courses.first %>">
-                <div class="d-block wd-100">
-                  <div class="card course-card mt-4">
-                      <h5 class="card-header">
-                        <%= course.title %>
-                      </h5>
-                      <div class='card-footer'>
-                        <%= link_to "Find out more", payments_path(course: course), class:"btn btn-primary", method: :post %>
-                      </div>
-                  </div>
+                <div class="d-block wd-100 text-center">
+                  <h2 class='carousel-header'><%= link_to course.title, course_path(course) %></h2>
                 </div>
               </div>
             <% end %>

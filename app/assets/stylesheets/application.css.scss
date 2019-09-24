@@ -83,15 +83,41 @@ nav {
     border-radius: 3em;
   }
 
+  .carousel-container {
+    padding-top: 1.5em;
+  }
+
   #carousel-main {
     width: 100%;
-    padding: none;
+    border-bottom: 4px solid #EF476F;
+    background: #204566;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+
+
+    .carousel-header {
+      a {
+        color: #FFF;
+        font-weight: bold;
+        background: #204566;
+      }
+      a:hover {
+        text-decoration: none;
+        color: #EF476F;
+      }
+    }
+
+    .carousel-border-bottom {
+      height: 4px;
+      background: #EF476F;
+      width: 66%;
+    }
 
     .card.course-card {
       margin: 0 3.5em;
       color: #FFF;
       background: #204566;
-      border: 1px solid #1C3E5B;
+      border: 1px solid transparent;
       border-radius: 0.5em;
       text-align: center;
 
