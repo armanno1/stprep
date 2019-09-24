@@ -3,8 +3,7 @@
   <div class='row'>
     <div class='col-lg-8 offset-lg-2'>
       <h4>
-        <%= @course.title %><%= "<span class='badge badge-warning ml-3'>Subscribed</span>".html_safe if user_signed_in? && current_user.courses.find_by_id(@course.id) %>
-
+        <%= @course.title %><%= "<span class='badge badge-warning ml-3'>Subscribed</span>".html_safe if user_signed_in? && current_user.courses.find_by_id(@course.id) %><%= "<span class='badge badge-primary ml-3'>Admin</span>".html_safe if current_user.admin? %>
       </h4>
     </div>
   </div>
@@ -13,7 +12,6 @@
 <div class="row course-show">
   <div class="col-lg-8 offset-lg-1">
     <% if has_course(current_user, @course) %>
-      <%= render 'admin_panel' if current_user.admin? %>
       <!-- stations listed by station_category -->
       <% if @course.station_categories.any? %>
         <% @course.station_categories.each do |station_category| %>
@@ -21,8 +19,8 @@
             <li class="list-group-item station-category-header">
               <strong><%= station_category.name %></strong>
               <span class="float-right button-group">
-                <%= link_to_if(current_user.admin?, 'Edit', edit_station_category_path(station_category), class: "btn btn-sm btn-primary"){} %>
-                <%= link_to_if(current_user.admin?, 'Delete', station_category_path(station_category), method: :delete, class: "btn btn-sm btn-danger" ){} %>
+                <%= link_to_if(current_user.admin?, 'Edit', edit_station_category_path(station_category), class: "btn btn-sm btn-light"){} %>
+                <%= link_to_if(current_user.admin?, 'Delete', station_category_path(station_category), method: :delete, class: "btn btn-sm btn-light" ){} %>
               </span>
             </li>
             <% if station_category.stations.any? %>
@@ -30,8 +28,8 @@
                 <li class="list-group-item station-header">
                   <%= link_to station.title, station_path(station) %>
                   <span class="float-right button-group">
-                    <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-primary"){} %>
-                    <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-danger" ){} %>
+                    <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-link"){} %>
+                    <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-link" ){} %>
                   </span>
                 </li>
               <% end %>
@@ -39,6 +37,7 @@
           </ul>
         <% end %>
       <% end %>
+      <%= render 'admin_panel' if current_user.admin? %>
     <% else %>
       <%= render "course_description_and_signup" %>
     <%end%>
