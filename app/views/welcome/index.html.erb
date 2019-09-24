@@ -1,19 +1,47 @@
 <div class="jumbotron">
   <div class="container">
     <div class="row">
-      <div class="col-sm-8">
-        <h1 class="display-4">Prepare for UK specialty interviews!</h1>
-        <p class="lead"> <strong>Core Training and Specialty Training</strong> interview courses for the UK. Designed to kick start your specialty career.</p>
-        <p class="lead" style="padding: 20px 0 0;">
-          <a class="btn btn-primary btn-lg" href="#" role="button" style="margin-right: 0.3em;">Sign up now</a>
-          <a class="btn btn-outline-primary btn-lg" href="#" role="button" style='color: white; border: 1px solid transparent;'>Learn more</a>
-        </p>
+      <div class="col-sm-12 text-center">
+        <h1 class="display-4"><span class='emphasis'>Prepare</span> for UK Specialty Interviews</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-5 text-right align-self-center'>
+        <h2>I'm applying for...</h2>
+      </div>
+      <div class="col-lg-5">
+        <div id="carousel-main" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% @courses.each do |course| %>
+              <div class="carousel-item<%= " active".html_safe if course == @courses.first %>">
+                <div class="d-block wd-100">
+                  <div class="card course-card mt-4">
+                      <h5 class="card-header">
+                        <%= course.title %>
+                      </h5>
+                      <div class='card-footer'>
+                        <%= link_to "Find out more", payments_path(course: course), class:"btn btn-primary", method: :post %>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carousel-main" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-main" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="welcome-section welcome-texture">
+<div class="welcome-section welcome-texture" data-aos="fade-up">
   <div class="container">
     <div class="row px-5 pt-5">
       <div class="col-sm-4 px-3 text-center">
@@ -41,7 +69,7 @@
   </div>
 </div>
 
-<div class="welcome-section">
+<div class="welcome-section" data-aos="fade-up">
   <div class="container">
     <div class="row">
       <div class='col-sm-12 text-center'>
@@ -62,7 +90,7 @@
   </div>
 </div>
 
-<div class="welcome-section">
+<div class="welcome-section" data-aos="fade-up">
   <div class="container">
     <!-- Three columns of text below the carousel -->
     <div class="row px-5">

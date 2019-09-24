@@ -52,34 +52,68 @@ body {
 }
 
 .welcome-messages-container {
-  background-color: #00B894;
+  background-color: #26547C;
 }
 
 .container {
   padding-top: 30px;
 }
 
+nav {
+  .container {
+    padding-top: 0;
+  }
+}
+
 .jumbotron {
-  margin-top: -30px;
   color: #FFF;
+  padding-top: 3em;
   border-radius: 0;
-  background: image-url('kitesurfing.svg');
-  background-color: #00B894;
-  background-repeat: no-repeat;
-  background-position: top 50% right 5%;
-  background-size: 50%;
+  background-color: #26547C;
   margin-bottom: 3em;
 
   .display-4 {
     font-weight: 700;
     font-size: 3.4em;
     letter-spacing: -0.5px;
-    line-height: .9em;
   }
 
   a.btn {
     font-weight: bold;
     border-radius: 3em;
+  }
+
+  #carousel-main {
+    width: 100%;
+    padding: none;
+
+    .card.course-card {
+      margin: 0 3.5em;
+      color: #FFF;
+      background: #204566;
+      border: 1px solid #1C3E5B;
+      border-radius: 0.5em;
+      text-align: center;
+
+      h5.card-header {
+        font-size: 1.6em;
+        background: none;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .card-footer {
+        background: none;
+        border: none;
+        padding-bottom: 1em;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .text-right {
+      text-align: center !important;
+    }
   }
 }
 
@@ -111,7 +145,7 @@ footer {
 }
 
 #main-nav-bar {
-  background-color: #00B894;
+  background-color: #26547C;
   padding: 1.4em 2.2em;
 }
 
@@ -201,6 +235,7 @@ footer {
     }
   }
 }
+
 #main-nav-bar.fixed-top {
   transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
 }
