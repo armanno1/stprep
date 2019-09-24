@@ -6,10 +6,10 @@
       </div>
     </div>
     <div class="row carousel-container">
-      <div class='col-lg-5 text-right align-self-center'>
+      <div class='col-lg-3 offset-lg-2 text-right align-self-cente py-3'>
         <h2>I'm applying for...</h2>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-5">
         <div id="carousel-main" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <% @courses.each do |course| %>
@@ -28,6 +28,15 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-12 text-center pt-2'>
+        <div class='pt-5'>
+          <%= link_to "#course-scroll-target", class: "btn btn-lg btn-primary dropdown-toggle" do %>
+          Find my course
+          <% end %>
         </div>
       </div>
     </div>
@@ -62,7 +71,7 @@
   </div>
 </div>
 
-<div class="welcome-section" data-aos="fade-up">
+<div class="welcome-section" data-aos="fade-up" id="course-scroll-target">
   <div class="container">
     <div class="row">
       <div class='col-sm-12 text-center'>
