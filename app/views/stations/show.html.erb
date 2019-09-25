@@ -29,6 +29,8 @@
                   <button type="button" class="btn btn-link dropdown-toggle" data-toggle="collapse" data-target="#collapse<%= "#{question.id}".html_safe %>">
                     <%= question.title %>
                   </button>
+                  <%= link_to_if(current_user.admin?, 'Edit', edit_question_path(question), class: "btn btn-sm btn-link float-right"){} %>
+                  <%= link_to_if(current_user.admin?, 'Delete', question_path(question), method: :delete, class: "btn btn-sm btn-link float-right" ){} %>
                 </div>
                 <div id="collapse<%= "#{question.id}".html_safe %>" class="collapse" aria-labelledby="heading<%= "#{question.id}".html_safe %>" data-parent="#scenario-accordion">
                     <div class="card-body">

@@ -10,6 +10,15 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def update
+    if @question.update(question_params)
+      flash[:success] = "Question updated."
+      redirect_to station_path(@question.station)
+    else
+      render "edit"
+    end
+  end
+
   def create
     @question = Question.new(question_params)
     if @question.save
@@ -17,6 +26,16 @@ class QuestionsController < ApplicationController
       redirect_to station_path(@question.station)
     else
       render 'new'
+    end
+  end
+
+  def destroy
+    if @question.destroy
+      flash[:danger] = "Question deleted"
+      redirect_to station_path(@question.station)
+    else
+      flash[:danger] = "Problem deleting Q"
+      redirect_to station_path(@question.station)
     end
   end
 

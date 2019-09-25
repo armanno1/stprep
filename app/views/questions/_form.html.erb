@@ -1,0 +1,41 @@
+<%= form_for(@question, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <div class="form-group">
+    <div class='row'>
+      <div class="control-label col-sm-2">
+        <%= f.label :title %>
+      </div>
+      <div class="col-sm-12">
+        <%= f.text_field :title, class: "form-control", placeholder: "Question", autofocus: true  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='row'>
+      <div class="control-label col-sm-2">
+        <%= f.label :answer %>
+      </div>
+      <div class='col-sm-12'>
+        <%= f.text_area :answer, rows: 10, class: "form-control", placeholder: "Answer" %>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-md-12'>
+        <%= f.collection_select(:station_id, Station.all, :id, :title, {:class => 'form-control'}) if params[:action] == "edit" %>
+        <%= f.collection_select(:station_id, Station.all, :id, :title, {:class => 'form-control', :selected => has_station?(params)}) if params[:action] != "edit"%>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='row'>
+      <div class="col-sm-offset-2 col-sm-12">
+        <%= f.submit class: "btn btn-primary" %>
+        <%= link_to "Back", station_path(Station.find_by_id(has_station?(params))), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
