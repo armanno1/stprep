@@ -17,14 +17,10 @@ class StationsController < ApplicationController
   end
 
   def show
-    if @station.questions.any?
-      @questions = @station.questions
-#    elsif current_user.admin?
-#      flash[:danger] = "This station has no questions: write a question for it now"
-#      redirect_to new_question_path(:station_id => @station.id)
-    else
-      flash.now[:danger] = "This station hasn't got any questions yet... Take a look at some of these trial stations below!"
-    end
+    @questions = @station.questions if @station.questions.any?
+    stations = Array.new(@station.station_category.stations)
+    current_position_id = stations.find_index(@station)
+    @next_station = stations[current_position_id + 1] if stations[current_position_id + 1]
   end
 
   def create

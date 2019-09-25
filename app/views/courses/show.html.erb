@@ -1,16 +1,18 @@
 </div>
 <div class='course-header'>
-  <div class='row'>
-    <div class='col-lg-8 offset-lg-2'>
-      <h4>
-        <%= @course.title %><%= "<span class='badge badge-warning ml-3'>Subscribed</span>".html_safe if user_signed_in? && current_user.courses.find_by_id(@course.id) %><%= "<span class='badge badge-primary ml-3'>Admin</span>".html_safe if current_user.admin? %>
-      </h4>
+  <div class="container">
+    <div class='row'>
+      <div class='col-lg-8 offset-lg-2'>
+        <h4>
+          <%= @course.title %>
+        </h4>
+      </div>
     </div>
   </div>
 </div>
 <div class="container">
 <div class="row course-show">
-  <div class="col-lg-8 offset-lg-1">
+  <div class="col-lg-8 offset-lg-2">
     <% if has_course(current_user, @course) %>
       <!-- stations listed by station_category -->
       <% if @course.station_categories.any? %>

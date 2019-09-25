@@ -52,7 +52,9 @@
     <div class='form-group'>
       <div class="row">
         <div class="col-sm-12">
-          <strong>Station: </strong><%= f.collection_select(:station_category_id, @station_categories, :id, :name, { :class=>'form-control', :selected=>selected(params) }) %>
+          <strong>Category: </strong>
+            <%= f.collection_select(:station_category_id, @station_categories, :id, :name, { :class=>'form-control' }) if params[:action] == "edit" %>
+            <%= f.collection_select(:station_category_id, @station_categories, :id, :name, { :class=>'form-control', :selected=>selected(params) }) if params[:action] != "edit"%>
         </div>
       </div>
     </div>

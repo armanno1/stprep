@@ -37,10 +37,6 @@ body {
   padding-top: 70px;
 }
 
-.alert.alert-success, .alert.alert-danger {
-  background: none;
-}
-
 #main-nav-bar {
   #main-logo {
     height: 2em;
@@ -67,14 +63,15 @@ nav {
 
 .jumbotron {
   color: #FFF;
-  padding-top: 3em;
+  padding-top: 1.2em;
   border-radius: 0;
-  background-color: #26547C;
+  background: #26547C;
   margin-bottom: 3em;
+  padding-bottom: 3.4em;
 
   .display-4 {
     font-weight: 700;
-    font-size: 3.4em;
+    font-size: 3em;
     letter-spacing: -0.5px;
   }
 
@@ -89,10 +86,11 @@ nav {
 
   #carousel-main {
     width: 100%;
-    border-bottom: 4px solid #EF476F;
+    //border-bottom: 4px solid #EF476F;
     background: #204566;
     padding-top: 1em;
     padding-bottom: 0.2em;
+    border-radius: 3em;
 
     .carousel-header {
       a {
@@ -104,12 +102,6 @@ nav {
         text-decoration: none;
         color: #EF476F;
       }
-    }
-
-    .carousel-border-bottom {
-      height: 4px;
-      background: #EF476F;
-      width: 66%;
     }
   }
 }
@@ -220,33 +212,6 @@ footer {
   padding-top: 1em;
 }
 
-#scenario-card {
-  .card-body {
-    padding-left: 2em;
-  }
-}
-
-#scenario-accordion {
-  .card-body {
-    padding-left: 2.2em;
-
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
-
-  .card {
-    .card-header {
-      padding-left: 2em;
-    }
-  }
-}
-
-#main-nav-bar.fixed-top {
-  transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
-}
-
 @include media-breakpoint-between(xs, m) {
   .col-sm-3, .col-md-3, .col-lg-3 {
     padding-bottom: 10px;
@@ -304,20 +269,26 @@ footer {
 }
 
 .course-header {
-    background: #EBEFF3;
-    margin-top: -14px;
-    padding: 1.5em 2em;
-    color: #26547C;
-    h4 {
-      font-weight: bold;
-      margin: 0;
-      padding: 0;
-    }
+  background: #EBEFF3;
+  margin-top: -14px;
+  padding: 1.5em 2em;
+  color: #26547C;
+
+  .container {
+    padding-top: 0;
+  }
+
+  h4 {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
 }
+
+/* Course show below */
 
 .course-show {
   .list-group {
-
     .station-header {
       transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
     }
@@ -329,7 +300,7 @@ footer {
 
     .list-group-item {
       border: 1px solid #EBEFF3;
-      font-size: 1.2em;
+      font-size: 14pt;
       padding: 0.6em 1.4em;
       a {
         color: #26547C;
@@ -344,8 +315,77 @@ footer {
   }
 }
 
+.course-tags {
+  font-size: 1.4em;
+  .badge-warning {
+    background: #26547C;
+    color: #FFF;
+  }
+}
+
 .admin {
   .btn {
     width: 100%;
   }
+}
+
+/* Course show end */
+
+/* Scenario show below */
+
+#scenario-accordion {
+  #scenario-card {
+    background: #FFF;
+    color: #26547C;
+    font-size: 0.8em;
+    border-bottom: none;
+
+    .card-header {
+      background: #26547C;
+      color: #EBEFF3;
+      padding: 0.6em 1em;
+      font-size: 14pt;
+      border: none;
+    }
+    .card-body {
+      padding: 1.4em;
+      font-size: 14pt;
+    }
+  }
+
+    .card {
+      border: none;
+
+      .card-header {
+      padding: 0.5em;
+      color: #26547C;
+      background: #EBEFF3;
+      border-top: 1px solid #E1E5E8;
+      border-bottom: none;
+
+      .btn {
+        font-size: 12pt;
+        }
+      }
+
+      .card-body {
+        padding: 1.4em;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+}
+
+.back-next {
+  margin-bottom: -10px;
+  margin-top: 5px;
+}
+
+.alert {
+  border: none;
+  border-radius: none;
+  margin-bottom: -20px;
+  margin-top: 16px;
 }

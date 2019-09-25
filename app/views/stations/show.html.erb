@@ -1,29 +1,34 @@
-<div class="row station-show">
-  <div class="col-lg-8 offset-lg-1">
-
-    <h2><%= @station.title %></h2>
-
-    <%= link_to_if(current_user.admin?, 'Create Q for this station', new_question_path(:station_id => @station.id), class: "btn btn-warning mb-3" ){} %>
-
-    <div id="scenario-card" class="card mb-4 mt-3 p-2">
-        <div class="card-body">
-              <p class="lead mb-0"><%= raw @station.scenario %></p>
+</div>
+<div class='course-header'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-lg-8 offset-lg-2'>
+        <h4><%= @station.course.title %></h4>
+        <div class='back-next'>
+          <%= link_to "Back to all stations", course_path(@station.course) %>
+          <% if @next_station %>
+            <%= link_to"Next station", station_path(@next_station), class: "float-right" %>
+          <% end %>
         </div>
+      </div>
     </div>
-
-    <div class="accordion" id="scenario-accordion">
-      <% if @station.questions.empty? %>
-        <%= render 'example' %>
-      <% else %>
+  </div>
+</div>
+<div class="container station-show">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="accordion" id="scenario-accordion">
+        <div class='card' id="scenario-card">
+          <div class="card-header"><%= @station.title %></div>
+          <div class="card-body"><%= raw @station.scenario %></div>
+        </div>
         <% @station.questions.each do |question| %>
           <!-- Start collapse group -->
             <div class="card">
                 <div class="card-header" id="heading<%= "#{question.id}".html_safe %>">
-                    <h2 class="mb-0">
-                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapse<%= "#{question.id}".html_safe %>">
-                          <%= question.title %>
-                        </button>
-                    </h2>
+                  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="collapse" data-target="#collapse<%= "#{question.id}".html_safe %>">
+                    <%= question.title %>
+                  </button>
                 </div>
                 <div id="collapse<%= "#{question.id}".html_safe %>" class="collapse" aria-labelledby="heading<%= "#{question.id}".html_safe %>" data-parent="#scenario-accordion">
                     <div class="card-body">
@@ -33,9 +38,7 @@
             </div>
           <!-- End collapse group -->
         <% end %>
-      <% end %>
-      <p class='my-4'><%= link_to "Back to course home", course_path(@station.course), class: "btn btn-primary" %></p>
+        <%= link_to_if(current_user.admin?, 'Create Q for this station', new_question_path(:station_id => @station.id), class: "btn btn-outline-primary mt-3" ){} %>
     </div>
-    
   </div>
 </div>

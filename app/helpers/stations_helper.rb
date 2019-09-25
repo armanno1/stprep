@@ -3,7 +3,7 @@ module StationsHelper
     if !params[:station_category_id].nil?
       return params[:station_category_id]
     else
-      return 1
+      return nil
     end
   end
 

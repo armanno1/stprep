@@ -28,6 +28,16 @@ class StationCategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    if @station_category.destroy
+      flash[:success] = "SC has been deleted"
+      redirect_to course_path(@station_category.course)
+    else
+      flash[:danger] = "Problem deleting SC"
+      redirect_to root_path
+    end
+  end
+
   def show
   end
 
