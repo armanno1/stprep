@@ -66,7 +66,7 @@ class StationsController < ApplicationController
 
   def check_user_has_station
     parent_course = @station.course.id if @station.course
-    if current_user.courses.find_by_id(parent_course).nil?
+    if !user_signed_in? || current_user.courses.find_by_id(parent_course).nil?
       flash[:danger] = "You are not subscribed to a course with this station"
       redirect_to courses_path
     end

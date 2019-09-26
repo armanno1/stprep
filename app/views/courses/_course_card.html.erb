@@ -13,9 +13,9 @@
         <%= link_to "£#{obj.price}", course_path(obj), class:"btn btn-primary" %>
       <% end %>
       <% if user_signed_in? && current_user.admin? %>
-      <div>
-        <%= link_to 'Edit', edit_course_path(obj), class: "btn btn-sm btn-warning mt-3" %>
-        <%= link_to 'Delete', course_path(obj), method: :delete, class: "btn btn-sm btn-warning mt-3" %>
+      <div style='border-top: 1px solid #EEE;' class='mt-3'>
+        <%= link_to 'Edit', edit_course_path(obj), class: "btn btn-sm btn-link" %>
+        <%= link_to 'Delete', course_path(obj), method: :delete, class: "btn btn-sm btn-link" %>
       </div>
       <% end %>
     </div>

@@ -177,8 +177,8 @@ footer {
     font-weight: bold;
     font-size: 1.2em;
     background: none;
+    padding: 1.4em 1em 0;
     border-bottom: none;
-    padding-bottom: 0;
 
     .badge {
       position: absolute;
@@ -326,17 +326,16 @@ footer {
     width: 100%;
   }
 }
-
-/* Course show end */
+/* /Course show */
 
 /* Scenario show below */
-
 #scenario-accordion {
   #scenario-card {
+    border-top: 1px solid #EBEFF3;
+    border-bottom: 1px solid #EBEFF3;
     background: #FFF;
     color: #26547C;
     font-size: 0.8em;
-    border-bottom: none;
 
     .card-header {
       background: #26547C;
@@ -352,13 +351,13 @@ footer {
   }
 
     .card {
-      border: none;
+      border: 1px solid #EBEFF3;
+      border-top: none;
 
       .card-header {
       padding: 0.5em;
       color: #26547C;
-      background: #EBEFF3;
-      border-top: 1px solid #E1E5E8;
+      background: #FFF;
       border-bottom: none;
 
       .btn {
@@ -376,6 +375,7 @@ footer {
       }
     }
 }
+/* /Scenario */
 
 .back-next {
   margin-bottom: -10px;
