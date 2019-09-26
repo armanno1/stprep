@@ -1,5 +1,4 @@
-</div>
-<div class='course-header'>
+<div class='grey-header'>
   <div class='container'>
     <div class='row'>
       <div class='col-lg-8 offset-lg-2'>
@@ -41,6 +40,7 @@
           <!-- End collapse group -->
         <% end %>
         <%= link_to_if(current_user.admin?, 'Create Q for this station', new_question_path(:station_id => @station.id), class: "btn btn-outline-primary mt-3" ){} %>
+      </div>
     </div>
   </div>
 </div>

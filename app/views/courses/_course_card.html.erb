@@ -8,9 +8,9 @@
     </div>
     <div class='card-footer'>
       <% if user_signed_in? && current_user.courses.find_by_id(obj.id) %>
-        <%= link_to "Go to course", course_path(obj), class: "btn btn-primary" %>
+        <%= link_to "Go to course", course_path(obj), class: "btn btn-primary btn-rounded" %>
       <% else %>
-        <%= link_to "£#{obj.price}", course_path(obj), class:"btn btn-primary" %>
+        <%= link_to "£#{obj.price}", course_path(obj), class:"btn btn-primary btn-rounded" %>
       <% end %>
       <% if user_signed_in? && current_user.admin? %>
       <div style='border-top: 1px solid #EEE;' class='mt-3'>

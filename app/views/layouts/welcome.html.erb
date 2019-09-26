@@ -14,9 +14,7 @@
   <body>
     <%= render 'layouts/navigation' %>
     <div class="welcome-messages-container">
-      <div class="container">
         <% render 'shared/messages' %>
-      </div>
     </div>
     <%= yield %>
     <%= render 'layouts/footer' %>
@@ -34,5 +32,16 @@
         x.parentNode.insertBefore(s, x);
       })();
     </script>
+
+    <% if @transparent_nav %>
+    <script>
+      window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById('main-nav-bar').style.background = '#26547C';
+        } else {
+          document.getElementById('main-nav-bar').style.background = 'transparent';
+      }};
+    </script>
+    <% end %>
   </body>
 </html>

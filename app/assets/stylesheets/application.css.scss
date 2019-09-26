@@ -34,12 +34,13 @@ https://coolors.co/export/copic/00b894-26547c-ef476f-ffd166-fffcf9
 
 body {
   background-color: #F7FCFF;
-  padding-top: 70px;
+  padding-top: 80px;
 }
 
 #main-nav-bar {
   #main-logo {
-    height: 2em;
+    height: 32px;
+    margin: 4px 0;
   }
 }
 
@@ -51,10 +52,6 @@ body {
   background-color: #26547C;
 }
 
-.container {
-  padding-top: 30px;
-}
-
 nav {
   .container {
     padding-top: 0;
@@ -62,17 +59,33 @@ nav {
 }
 
 .jumbotron {
+  background:
+    url(hero3.png);
   color: #FFF;
-  padding-top: 1.2em;
   border-radius: 0;
-  background: #26547C;
   margin-bottom: 3em;
-  padding-bottom: 3.4em;
+  padding: 0 1em;
+  padding-top: 100px;
+  margin-top: -100px;
+  background-repeat: no-repeat;
+  background-position: bottom 0px right 0px;
+  background-size: 1000px;
+  background-color: #26547C;
 
-  .display-4 {
-    font-weight: 700;
-    font-size: 3em;
-    letter-spacing: -0.5px;
+  .hero-left {
+    padding-bottom: 4em;
+    padding-top: 4em;
+    padding-right: 0em;
+    padding-left: 3em;
+
+    .display-4 {
+      font-weight: 700;
+      font-size: 2.6em;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  .hero-right {
   }
 
   a.btn {
@@ -130,6 +143,7 @@ nav {
 }
 
 footer {
+  margin: 2em auto;
   .container {
     .footer-link {
       padding: 0 10px;
@@ -146,21 +160,21 @@ footer {
 #main-nav-bar {
   background-color: #26547C;
   padding: 1.4em 2.2em;
-}
+  transition: 0.4s;
 
-#main-nav-bar {
   .navbar-brand {
     font-weight: bold;
     color: #FFF;
     font-size: 1.4em;
+    height: 40px;
   }
+
   .navbar-collapse {
     ul.navbar-nav {
       .nav-item {
         a {
           font-weight: bold;
           color: #FFF;
-          font-size: 1.1em;
         }
         a:hover {
           color: #EF476F;
@@ -266,15 +280,10 @@ footer {
   transform: rotate(0);
 }
 
-.course-header {
+.grey-header {
   background: #EBEFF3;
-  margin-top: -14px;
   padding: 1.5em 2em;
   color: #26547C;
-
-  .container {
-    padding-top: 0;
-  }
 
   h4 {
     font-weight: bold;
@@ -283,9 +292,17 @@ footer {
   }
 }
 
+.login-header h4 {
+  font-weight: bold;
+  color: #26547C;
+  margin-bottom: 1em;
+}
+
 /* Course show below */
 
 .course-show {
+  padding-top: 30px;
+
   .list-group {
     .station-header {
       transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
@@ -387,4 +404,15 @@ footer {
   border-radius: none;
   margin-bottom: -20px;
   margin-top: 16px;
+}
+
+.login-form {
+  padding: 1em 2em;
+  background: #FFF;
+  border: 1px solid #EBEFF3;
+  border-radius: .5em;
+}
+
+.btn-rounded {
+  border-radius: 3em;
 }

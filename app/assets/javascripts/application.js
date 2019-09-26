@@ -17,26 +17,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-//window.setTimeout(function() {
-//    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-//        $(this).remove();
-//    });
-//}, 2000);
-
-//window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("main-nav-bar").style.background = "#26547C";
-    document.getElementById("main-nav-bar").style.padding = "1em"
-  } else {
-    document.getElementById("main-nav-bar").style.background = "transparent";
-    document.getElementById("main-nav-bar").style.padding = "auto"
-  }
-}
-
-//$(document).on('turbolinks:load', function() {
-//  var $svg = $("svg").drawsvg();
-//  $svg.drawsvg("animate");
-//})

@@ -1,5 +1,4 @@
-</div>
-<div class='course-header'>
+<div class='grey-header'>
   <div class="container">
     <div class='row'>
       <div class='col-lg-8 offset-lg-2'>
@@ -11,37 +10,38 @@
   </div>
 </div>
 <div class="container">
-<div class="row course-show">
-  <div class="col-lg-8 offset-lg-2">
-    <% if has_course(current_user, @course) %>
-      <!-- stations listed by station_category -->
-      <% if @course.station_categories.any? %>
-        <% @course.station_categories.each do |station_category| %>
-          <ul class="list-group mb-3">
-            <li class="list-group-item station-category-header">
-              <strong><%= station_category.name %></strong>
-              <span class="float-right button-group">
-                <%= link_to_if(current_user.admin?, 'Edit', edit_station_category_path(station_category), class: "btn btn-sm btn-light"){} %>
-                <%= link_to_if(current_user.admin?, 'Delete', station_category_path(station_category), method: :delete, class: "btn btn-sm btn-light" ){} %>
-              </span>
-            </li>
-            <% if station_category.stations.any? %>
-              <% station_category.stations.each do |station| %>
-                <li class="list-group-item station-header">
-                  <%= link_to station.title, station_path(station) %>
-                  <span class="float-right button-group">
-                    <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-link"){} %>
-                    <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-link" ){} %>
-                  </span>
-                </li>
+  <div class="row course-show">
+    <div class="col-lg-8 offset-lg-2">
+      <% if has_course(current_user, @course) %>
+        <!-- stations listed by station_category -->
+        <% if @course.station_categories.any? %>
+          <% @course.station_categories.each do |station_category| %>
+            <ul class="list-group mb-3">
+              <li class="list-group-item station-category-header">
+                <strong><%= station_category.name %></strong>
+                <span class="float-right button-group">
+                  <%= link_to_if(current_user.admin?, 'Edit', edit_station_category_path(station_category), class: "btn btn-sm btn-light"){} %>
+                  <%= link_to_if(current_user.admin?, 'Delete', station_category_path(station_category), method: :delete, class: "btn btn-sm btn-light" ){} %>
+                </span>
+              </li>
+              <% if station_category.stations.any? %>
+                <% station_category.stations.each do |station| %>
+                  <li class="list-group-item station-header">
+                    <%= link_to station.title, station_path(station) %>
+                    <span class="float-right button-group">
+                      <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-link"){} %>
+                      <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-link" ){} %>
+                    </span>
+                  </li>
+                <% end %>
               <% end %>
-            <% end %>
-          </ul>
+            </ul>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= render 'admin_panel' if current_user.admin? %>
-    <% else %>
-      <%= render "course_description_and_signup" %>
-    <%end%>
+        <%= render 'admin_panel' if current_user.admin? %>
+      <% else %>
+        <%= render "course_description_and_signup" %>
+      <%end%>
+    </div>
   </div>
 </div>
