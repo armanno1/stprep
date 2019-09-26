@@ -37,7 +37,7 @@ body {
   padding-top: 80px;
 }
 
-#main-nav-bar {
+#main-nav-bar, #main-nav-bar-transparent {
   #main-logo {
     height: 32px;
     margin: 4px 0;
@@ -156,7 +156,7 @@ footer {
   }
 }
 
-#main-nav-bar {
+#main-nav-bar, #main-nav-bar-transparent {
   background-color: #26547C;
   padding: 1.4em 2.2em;
   transition: 0.4s;
@@ -181,6 +181,10 @@ footer {
       }
     }
   }
+}
+
+#main-nav-bar-transparent {
+  background: transparent;
 }
 
 .card.course-card {
