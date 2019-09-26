@@ -15,13 +15,15 @@ class PaymentsController < ApplicationController
       line_items: [{
         name: @course.title,
         description: @course.description,
-        amount: 500,
+        amount: @course.price * 100,
         currency: 'gbp',
         quantity: 1,
       }],
       success_url: 'https://www.stprep.com/courses?session_id={CHECKOUT_SESSION_ID}',
       cancel_url: 'https://www.stprep.com/courses',
     })
-    render 'new' if !!@session.id
+    respond_to do |format|
+        format.js
+    end
   end
 end

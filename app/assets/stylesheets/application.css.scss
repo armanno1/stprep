@@ -171,9 +171,7 @@ footer {
 }
 
 .card.course-card {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.08);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  border-color: #FFF;
+  border: 1px solid #E1E5E8;
 
   h5.card-header {
     font-weight: bold;
