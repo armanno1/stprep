@@ -31,17 +31,15 @@
         var x = document.getElementsByTagName('script')[0];
         x.parentNode.insertBefore(s, x);
       })();
-    </script>
 
-    <% if @transparent_nav %>
-    <script>
-      window.onscroll = function() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          document.getElementById('main-nav-bar').style.background = '#26547C';
-        } else {
-          document.getElementById('main-nav-bar').style.background = 'transparent';
-      }};
+      if (<%= @transparent_nav %>) {
+        window.onscroll = function() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById('main-nav-bar').style.background = '#26547C';
+          } else {
+            document.getElementById('main-nav-bar').style.background = 'transparent';
+        }};
+      }
     </script>
-    <% end %>
   </body>
 </html>
