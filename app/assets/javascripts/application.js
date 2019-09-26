@@ -17,3 +17,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+window.onscroll = function() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById('main-nav-bar-transparent').style.background = '#26547C';
+  } else {
+    document.getElementById('main-nav-bar-transparent').style.background = 'transparent';
+}};

@@ -3,6 +3,5 @@ class WelcomeController < ApplicationController
 
   def index
     @courses = Course.all
-    @transparent_nav = true
   end
 end
