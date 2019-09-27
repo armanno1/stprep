@@ -14,7 +14,6 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:200,300,400,700);
-@import url(https://fonts.googleapis.com/css?family=Raleway:200,300,400,700);
 @import url(https://use.typekit.net/sqd2nji.css);
 $font-family-base:Lato;
 $headings-font-family:houschka-rounded;
@@ -23,12 +22,6 @@ $theme-colors: (
   "primary": #EF476F,
   "danger": #EF476F
 );
-/*
-#3A405A - nice dark blue (with green primary)
-#00B894 - original green primary
-#FED766 - really nice yellowy orange
-https://coolors.co/export/copic/00b894-26547c-ef476f-ffd166-fffcf9
-*/
 
 @import "bootstrap";
 
@@ -131,7 +124,7 @@ nav {
 
 .welcome-section {
   .container {
-    padding: 4em 3em;
+    padding: 2em;
   }
 
   h2 {
@@ -409,8 +402,12 @@ footer {
   margin-top: 16px;
 }
 
+.login-header {
+  padding-top: 2em;
+}
+
 .login-form {
-  padding: 1em 2em;
+  padding: 1.5em 2em .5em;
   background: #FFF;
   border: 1px solid #EBEFF3;
   border-radius: .5em;

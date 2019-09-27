@@ -20,24 +20,28 @@
     <%= render 'layouts/footer' %>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init();
-      (function () {
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-         s.async = true;
-        s.src = 'https://app.termly.io/embed.min.js';
-        s.id = '107e6726-a4d6-467d-9cc6-6f92a66ee9ba';
-        s.setAttribute("data-name", "termly-embed-banner");
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
-      })();
+      document.addEventListener("turbolinks:load", function() {
+        AOS.init();
 
-      window.onscroll = function() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          document.getElementById('main-nav-bar-transparent').style.background = '#26547C';
-        } else {
-          document.getElementById('main-nav-bar-transparent').style.background = 'transparent';
-      }};
+        (function () {
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+           s.async = true;
+          s.src = 'https://app.termly.io/embed.min.js';
+          s.id = '107e6726-a4d6-467d-9cc6-6f92a66ee9ba';
+          s.setAttribute("data-name", "termly-embed-banner");
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        })();
+
+        window.onscroll = function() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById('main-nav-bar-transparent').style.background = '#26547C';
+          } else {
+            document.getElementById('main-nav-bar-transparent').style.background = 'transparent';
+        }};
+
+      })
     </script>
   </body>
 </html>
