@@ -1,5 +1,5 @@
 class StationsController < ApplicationController
-  before_action :set_station, only: [:edit, :update, :show, :destroy]
+  before_action :set_station, only: [:edit, :update, :show, :destroy, :complete]
   before_action :check_user_has_station, only: [:show]
   attr_accessor :course_id
 
@@ -54,6 +54,26 @@ class StationsController < ApplicationController
       redirect_to course_path(station.course)
     end
   end
+
+  def complete
+    type = params[:type]
+    if type == "1"
+      @completed = "Completed"
+      current_user.completed_stations << @station
+      respond_to do |format|
+        format.js
+      end
+    elsif type == "0"
+      current_user.completed_stations.delete(@station)
+      @completed = "Incomplete"
+      respond_to do |format|
+        format.js
+      end
+    else
+      render js: "alert('error');"
+    end
+  end
+
 
   private
   def station_params

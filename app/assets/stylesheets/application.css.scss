@@ -27,7 +27,7 @@ $theme-colors: (
 
 body {
   background-color: #F7FCFF;
-  padding-top: 80px;
+  padding-top: 84px;
 }
 
 #main-nav-bar, #main-nav-bar-transparent {
@@ -349,6 +349,7 @@ footer {
     background: #FFF;
     color: #26547C;
     font-size: 0.8em;
+    margin-top: 30px;
 
     .card-header {
       background: #26547C;
@@ -415,4 +416,17 @@ footer {
 
 .btn-rounded {
   border-radius: 3em;
+}
+
+.course-status-container {
+
+  .custom-switch {
+    margin: 0;
+  }
+
+  .course-status-label {
+    font-size: 14px;
+    margin: 0 auto;
+    color: #AAA;
+  }
 }

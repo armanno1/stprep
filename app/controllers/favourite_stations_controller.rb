@@ -1,0 +1,2 @@
+class FavouriteStationsController < ApplicationController
+end

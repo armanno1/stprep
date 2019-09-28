@@ -9,6 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- <script src="https://cdn.jsdelivr.net/jquery.drawsvg/1/jquery.drawsvg.min.js"></script> -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script>
+      //TL bug fix
+      document.addEventListener('DOMContentLoaded', function() {
+        window.DOMLoaded = true;
+      });
+    </script>
   </head>
 
   <body>

@@ -28,7 +28,21 @@
                 <% station_category.stations.each do |station| %>
                   <li class="list-group-item station-header">
                     <%= link_to station.title, station_path(station) %>
-                    <span class="float-right button-group">
+                    <span class="float-right button-group course-status-container">
+                      <div class="custom-control custom-switch align-middle">
+                        <%= form_with(url: complete_station_path(station), method: 'put', id: "complete_toggle_#{station.id}") do |f| %>
+                          <%  if current_user.completed_stations.find_by_id(station).present?
+                                @completed = "Completed"
+                                @checked = true
+                              else
+                                @completed = "Incomplete"
+                                @checked = false
+                              end
+                          %>
+                          <%= f.check_box(:type, :class => "custom-control-input", :id => "customSwitch#{station.id}", :onclick =>"Rails.fire(form, 'submit');", :checked => @checked ) %>
+                          <%= f.label(:type, @completed, :class => "custom-control-label label#{station.id} course-status-label", :for => "customSwitch#{station.id}") %>
+                        <% end %>
+                      </div>
                       <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-link"){} %>
                       <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-link" ){} %>
                     </span>
@@ -45,3 +59,9 @@
     </div>
   </div>
 </div>
+
+<script>
+$(".custom-control-input").on("click", function (){
+  $("this").submit();
+});
+</script>

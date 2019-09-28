@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_courses
   has_many :courses, through: :user_courses
+  has_many :favourite_stations # just the 'relationships'
+  has_many :completed_stations, through: :favourite_stations, source: :station # the actual stations a user favorites
 end

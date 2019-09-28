@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     resources :stations, :questions, :station_categories
   end
   mount StripeEvent::Engine, at: '/stripe-event'
+  resources :stations do
+    put :complete, on: :member
+  end
 end
