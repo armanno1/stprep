@@ -40,12 +40,17 @@
           x.parentNode.insertBefore(s, x);
         })();
 
-        window.onscroll = function() {
+        function ScrollHeader() {
           if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             document.getElementById('main-nav-bar-transparent').style.background = '#26547C';
           } else {
             document.getElementById('main-nav-bar-transparent').style.background = 'transparent';
         }};
+
+        $( window ).scroll( ScrollHeader );
+
+
+        $( ScrollHeader );
 
       })
     </script>

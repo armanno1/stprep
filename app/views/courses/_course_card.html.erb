@@ -1,16 +1,16 @@
 <div class="card course-card mt-4">
-    <h5 class="card-header">
+    <div class="card-header">
       <%= obj.title %>
       <%= "<span class='badge badge-warning'>Subscribed</span>".html_safe if user_signed_in? && current_user.courses.find_by_id(obj.id) %>
-    </h5>
+    </div>
     <div class="card-body">
       <p class="card-text"><%= obj.description %></p>
     </div>
-    <div class='card-footer'>
+    <div class='card-footer text-right'>
       <% if user_signed_in? && current_user.courses.find_by_id(obj.id) %>
-        <%= link_to "Go to course", course_path(obj), class: "btn btn-primary btn-rounded" %>
+        <%= link_to "Go to course", course_path(obj), class: "btn btn-link" %>
       <% else %>
-        <%= link_to "£#{obj.price}", course_path(obj), class:"btn btn-primary btn-rounded" %>
+        <%= link_to "Find out more", course_path(obj), class:"btn btn-link" %>
       <% end %>
       <% if user_signed_in? && current_user.admin? %>
       <div style='border-top: 1px solid #EEE;' class='mt-3'>

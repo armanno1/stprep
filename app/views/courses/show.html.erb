@@ -16,7 +16,7 @@
         <!-- stations listed by station_category -->
         <% if @course.station_categories.any? %>
           <% @course.station_categories.each do |station_category| %>
-            <ul class="list-group mb-3">
+            <ul class="list-group mb-3 d-flex justify-content-center">
               <li class="list-group-item station-category-header">
                 <strong><%= station_category.name %></strong>
                 <span class="float-right button-group">
@@ -26,23 +26,25 @@
               </li>
               <% if station_category.stations.any? %>
                 <% station_category.stations.each do |station| %>
-                  <li class="list-group-item station-header">
+                  <li class="list-group-item station-header ">
                     <%= link_to station.title, station_path(station) %>
-                    <span class="float-right button-group course-status-container">
-                      <div class="custom-control custom-switch align-middle">
+                    <span class="float-right">
                         <%= form_with(url: complete_station_path(station), method: 'put', id: "complete_toggle_#{station.id}") do |f| %>
                           <%  if current_user.completed_stations.find_by_id(station).present?
-                                @completed = "Completed"
                                 @checked = true
                               else
-                                @completed = "Incomplete"
                                 @checked = false
                               end
                           %>
-                          <%= f.check_box(:type, :class => "custom-control-input", :id => "customSwitch#{station.id}", :onclick =>"Rails.fire(form, 'submit');", :checked => @checked ) %>
-                          <%= f.label(:type, @completed, :class => "custom-control-label label#{station.id} course-status-label", :for => "customSwitch#{station.id}") %>
+                          <%= f.label :type, :class => "label label#{station.id}", :for => "customSwitch#{station.id}" do %>
+                            <%= f.check_box(:type, :class => "label__checkbox", :id => "customSwitch#{station.id}", :onclick =>"Rails.fire(form, 'submit');", :checked => @checked ) %>
+                            <span class="label__text">
+                              <span class='label__check'>
+                                <i class="fa fa-check icon"></i>
+                              </span>
+                            </span>
+                          <% end %>
                         <% end %>
-                      </div>
                       <%= link_to_if(current_user.admin?, 'Edit', edit_station_path(station), class: "btn btn-sm btn-link"){} %>
                       <%= link_to_if(current_user.admin?, 'Delete', station_path(station), method: :delete, class: "btn btn-sm btn-link" ){} %>
                     </span>
@@ -61,7 +63,7 @@
 </div>
 
 <script>
-$(".custom-control-input").on("click", function (){
-  $("this").submit();
-});
+  $(".custom-control-input").on("click", function (){
+    $("this").submit();
+  });
 </script>
