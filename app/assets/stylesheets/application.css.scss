@@ -85,7 +85,7 @@ nav {
 
 .welcome-section {
   .container {
-    padding: 0em;
+    padding-top: 0em;
   }
 
   h2 {
@@ -127,8 +127,10 @@ nav {
 }
 
 .card.course-card {
-  border: 1px solid #E1E5E8;
-  border-radius: 2px;
+  border: .075rem solid #E1E5E8;
+  border-radius: .375rem;
+  box-shadow: 0 0.075rem 0.125rem 0 rgba(0,0,0,.075);
+  transition: .5s;
 
   .card-header {
     font-weight: bold;
@@ -160,6 +162,7 @@ nav {
 
 .card.course-card:hover {
   transform: translate3d(0px, -2px, 0px);
+  transition: .5s;
 }
 
 .course-card-row {
@@ -423,7 +426,7 @@ footer {
     font-size: .6em;
     color: transparent;
     transition: opacity .3s .1s ease;
-    -webkit-text-stroke: 2px rgba(0,0,0,.5);
+    -webkit-text-stroke: 1px rgba(0,0,0,.5);
   }
 
   &:hover {
@@ -436,7 +439,6 @@ footer {
 
   .icon {
     opacity: 1;
-    transform: scale(0);
     color: white;
     -webkit-text-stroke: 0;
     animation: icon .3s cubic-bezier(1.000, 0.008, 0.565, 1.650) .1s 1 forwards;
@@ -460,33 +462,23 @@ footer {
 
 @keyframes check {
   0% {
-    width: 1.3em;
-    height: 1.3em;
     border-width: 5px;
   }
   10% {
-    width: 1.3em;
-    height: 1.3em;
     opacity: 0.1;
     background: rgba(0,0,0,0.2);
   }
   12% {
-    width: 1.3em;
-    height: 1.3em;
     opacity: 0.4;
     background: rgba(0,0,0,0.1);
     border-width: 0;
   }
   50% {
-    width: 1.3em;
-    height: 1.3em;
     background: #00d478;
     border: 0;
     opacity: 0.6;
   }
   100% {
-    width: 1.3em;
-    height: 1.3em;
     background: #00d478;
     border: 0;
     opacity: 1;
