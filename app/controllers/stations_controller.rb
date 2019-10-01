@@ -1,8 +1,8 @@
 class StationsController < ApplicationController
   before_action :set_station, only: [:edit, :update, :show, :destroy, :complete]
   before_action :check_user_has_station, only: [:show]
-  attr_accessor :course_id
-
+  attr_accessor :course_id,
+  
   def index
     @stations = Station.all
   end
@@ -45,13 +45,12 @@ class StationsController < ApplicationController
   end
 
   def destroy
-    station = Station.find(params[:id])
-    if station.destroy
+    if @station.destroy
       flash[:success] = "Station has been deleted"
-      redirect_to course_path(station.course)
+      redirect_to course_path(@station.course)
     else
       flash[:danger] = "Problem deleting station"
-      redirect_to course_path(station.course)
+      redirect_to course_path(@station.course)
     end
   end
 

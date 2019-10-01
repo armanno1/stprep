@@ -45,13 +45,12 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    course = Course.find(params[:id])
-    if course.destroy
+    if @course.destroy
       flash[:success] = "Course has been deleted"
-      redirect_to my_courses_path
+      redirect_to courses_path
     else
       flash[:danger] = "Problem deleting course"
-      redirect_to my_courses_path
+      redirect_to courses_path
     end
   end
 
