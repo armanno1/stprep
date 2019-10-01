@@ -16,7 +16,7 @@
         <!-- stations listed by station_category -->
         <% if @course.station_categories.any? %>
           <% @course.station_categories.each do |station_category| %>
-            <ul class="list-group mb-3 d-flex justify-content-center">
+            <ul class="list-group mb-3">
               <li class="list-group-item station-category-header">
                 <strong><%= station_category.name %></strong>
                 <span class="float-right button-group">

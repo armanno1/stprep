@@ -15,7 +15,7 @@
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:200,300,400,700);
 @import url(https://use.typekit.net/sqd2nji.css);
-$font-family-base:Lato;
+$font-family-base:Nunito;
 $headings-font-family:Nunito;
 $enable-rounded: true;
 $theme-colors: (
@@ -27,7 +27,7 @@ $theme-colors: (
 
 body {
   background-color: #F7FCFF;
-  padding-top: 84px;
+  padding-top: 66px;
 }
 
 #main-nav-bar, #main-nav-bar-transparent {
@@ -52,24 +52,22 @@ nav {
 }
 
 .jumbotron {
-  //background-image: image-url('hero3.png');
   color: #FFF;
   border-radius: 0;
-  padding: 0 1em;
-  padding-top: 100px;
-  margin-top: -100px;
-  background-repeat: no-repeat;
-  background-position: bottom 0px right 0px;
-  background-size: 1000px;
+  padding-top: 3em;
+  background: image-url('hero.jpg') no-repeat center -200px;
+  background-size: cover;
   background-color: #26547C;
+  background-attachment: fixed, fixed;
 
   .hero-left {
-    padding: 2em 0 3em;
+    padding: 5em 1em 4em;
 
     .display-4 {
       font-weight: 700;
-      font-size: 4em;
-      padding-bottom: 0em;
+      font-size: 3em;
+      letter-spacing: 1px;
+      padding-bottom: 0;
     }
   }
 
@@ -95,10 +93,18 @@ nav {
   }
 }
 
-#main-nav-bar, #main-nav-bar-transparent {
+@include media-breakpoint-down(sm) {
+  .jumbotron {
+    background-position: center top;
+  }
+}
+
+
+#main-nav-bar {
   background-color: #26547C;
-  padding: 1.4em 2.2em;
+  padding: 0.8em;
   transition: 0.4s;
+  //border-bottom: 1px solid #303B45;
 
   .navbar-brand {
     font-weight: bold;
@@ -122,26 +128,19 @@ nav {
   }
 }
 
-#main-nav-bar-transparent {
-  background: transparent;
-}
-
 .card.course-card {
-  border: .075rem solid #E1E5E8;
+  border: .075rem solid #EFEFEF;
   border-radius: .375rem;
-  box-shadow: 0 0.075rem 0.125rem 0 rgba(0,0,0,.075);
+  //box-shadow: 0 0.075rem 0.125rem 0 rgba(0,0,0,.075);
   transition: .5s;
 
   .card-header {
+    font-family: Nunito;
+    color: #444;
     font-weight: bold;
     font-size: 1.2em;
     padding: 0.5em 1em;
-
-    .badge {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-    }
+    border: none;
   }
 
   .card-body {
@@ -149,7 +148,8 @@ nav {
 
     p.card-text {
       padding: none;
-      font-size: 12pt;
+      font-size: 11pt;
+      color: #666;
     }
   }
 
@@ -178,12 +178,12 @@ nav {
   }
 }
 
-.svg-wrapper {
+/* .svg-wrapper {
   #svg-chart, #svg-academic, #svg-tablet {
     width: 6em;
     stroke: #26547C;
   }
-}
+} */
 
 .icon-bar {
 	width: 22px;
@@ -268,9 +268,9 @@ nav {
     }
     .station-category-header {
       background: #26547C;
-      color: #EBEFF3;
-      padding: 0.6em 1em;
+      color: #FFF;
       border: none;
+      padding: 0.6em 1em;
     }
   }
 }
@@ -298,11 +298,10 @@ nav {
     background: #FFF;
     color: #26547C;
     font-size: 0.8em;
-    margin-top: 30px;
 
     .card-header {
       background: #26547C;
-      color: #EBEFF3;
+      color: #FFF;
       padding: 0.6em 1em;
       font-size: 14pt;
       border: none;
@@ -430,7 +429,7 @@ footer {
   }
 
   &:hover {
-    border: 2px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.2);
   }
 }
 
@@ -461,9 +460,6 @@ footer {
 }
 
 @keyframes check {
-  0% {
-    border-width: 5px;
-  }
   10% {
     opacity: 0.1;
     background: rgba(0,0,0,0.2);
@@ -475,14 +471,18 @@ footer {
   }
   50% {
     background: #00d478;
-    border: 0;
     opacity: 0.6;
   }
   100% {
     background: #00d478;
-    border: 0;
     opacity: 1;
   }
+}
+.mark-complete {
+  font-size: 12pt;
+  color: #AAA;
+  padding-right: 2em;
+  margin-bottom: .4em;
 }
 
 //end Station progress toggle

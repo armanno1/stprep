@@ -1,7 +1,7 @@
 <div class="card course-card mt-4">
     <div class="card-header">
-      <%= obj.title %>
-      <%= "<span class='badge badge-warning'>Subscribed</span>".html_safe if user_signed_in? && current_user.courses.find_by_id(obj.id) %>
+      <%= obj.title %>     <%= "<span class='badge badge-warning'>Subscribed</span>".html_safe if user_signed_in? && current_user.courses.find_by_id(obj.id) %>
+
     </div>
     <div class="card-body">
       <p class="card-text"><%= obj.description %></p>

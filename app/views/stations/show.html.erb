@@ -14,30 +14,37 @@
   </div>
 </div>
 <div class="container station-show">
+
+  <div class='row'>
+    <div class='col-lg-8 offset-lg-2 text-right mark-complete' style='margin-top: 30px;'>
+      Mark as complete:
+      <span class='float-right pl-2'>
+        <%= form_with(url: complete_station_path(@station), method: 'put', id: "complete_toggle_#{@station.id}") do |f| %>
+          <%  if current_user.completed_stations.find_by_id(@station).present?
+                @checked = true
+              else
+                @checked = false
+              end
+          %>
+          <%= f.label :type, :class => "label label#{@station.id}", :for => "customSwitch#{@station.id}" do %>
+            <%= f.check_box(:type, :class => "label__checkbox", :id => "customSwitch#{@station.id}", :onclick =>"Rails.fire(form, 'submit');", :checked => @checked ) %>
+            <span class="label__text">
+              <span class='label__check'>
+                <i class="fa fa-check icon"></i>
+              </span>
+            </span>
+          <% end %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <div class="accordion" id="scenario-accordion">
         <div class='card' id="scenario-card">
           <div class="card-header">
             <%= @station.title %>
-            <span class='float-right'>
-              <%= form_with(url: complete_station_path(@station), method: 'put', id: "complete_toggle_#{@station.id}") do |f| %>
-                <%  if current_user.completed_stations.find_by_id(@station).present?
-                      @checked = true
-                    else
-                      @checked = false
-                    end
-                %>
-                <%= f.label :type, :class => "label label#{@station.id}", :for => "customSwitch#{@station.id}" do %>
-                  <%= f.check_box(:type, :class => "label__checkbox", :id => "customSwitch#{@station.id}", :onclick =>"Rails.fire(form, 'submit');", :checked => @checked ) %>
-                  <span class="label__text">
-                    <span class='label__check'>
-                      <i class="fa fa-check icon"></i>
-                    </span>
-                  </span>
-                <% end %>
-              <% end %>
-            </span>
           </div>
           <div class="card-body"><%= raw @station.scenario %></div>
         </div>
