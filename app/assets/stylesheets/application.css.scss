@@ -61,7 +61,7 @@ nav {
   background-attachment: fixed, fixed;
 
   .hero-left {
-    padding: 5em 1em 4em;
+    padding: 5em 2em 4em;
 
     .display-4 {
       font-weight: 700;
@@ -263,11 +263,11 @@ nav {
       font-size: 14pt;
       padding: 0.6em 1.4em;
       a {
-        color: #26547C;
+        color: #5F6062;
       }
     }
     .station-category-header {
-      background: #26547C;
+      background: #33484E;
       color: #FFF;
       border: none;
       padding: 0.6em 1em;
@@ -300,7 +300,7 @@ nav {
     font-size: 0.8em;
 
     .card-header {
-      background: #26547C;
+      background: #33484E;
       color: #FFF;
       padding: 0.6em 1em;
       font-size: 14pt;
@@ -329,7 +329,7 @@ nav {
 
       .card-body {
         padding: 1.4em;
-        color: #26547C;
+        color: #5F6062;
 
         p {
           margin: 0;
@@ -430,11 +430,13 @@ footer {
 
   &:hover {
     border: 1px solid rgba(0,0,0,0.2);
+
   }
 }
 
 .label__checkbox:checked + .label__text .label__check {
   animation: check .5s cubic-bezier(0.895, 0.030, 0.685, 0.220) forwards;
+  border: none;
 
   .icon {
     opacity: 1;
