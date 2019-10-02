@@ -56,8 +56,9 @@ nav {
   border-radius: 0;
   margin-top: -3px;
   padding-top: 3em;
-  background: image-url('hero.jpg') no-repeat center -200px;
-  background-size: cover;
+  background: image-url('hero.jpg') no-repeat;
+  background-position: center top;
+  background-size: auto 600px;
   background-color: #26547C;
   background-attachment: fixed, fixed;
 
@@ -107,7 +108,7 @@ nav {
 
 
 #main-nav-bar {
-  background-color: #26547C;
+  background-color: #2274A5;
   padding: 0.8em;
   transition: 0.4s;
   //border-bottom: 1px solid #303B45;
@@ -135,22 +136,24 @@ nav {
 }
 
 .card.course-card {
-  border: .075rem solid #EFEFEF;
+  border: .075rem solid #DDD;
   border-radius: .375rem;
   //box-shadow: 0 0.075rem 0.125rem 0 rgba(0,0,0,.075);
   transition: .5s;
+  padding: 1em;
 
   .card-header {
     font-family: Nunito;
     color: #444;
     font-weight: bold;
-    font-size: 1.2em;
-    padding: 0.5em 1em;
+    font-size: 1.4em;
     border: none;
+    padding: 0;
+    background: none;
   }
 
   .card-body {
-    padding: 1em 1.2em;
+    padding: 0.5em 0;
 
     p.card-text {
       padding: none;
