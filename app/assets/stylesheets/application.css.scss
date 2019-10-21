@@ -15,8 +15,8 @@
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:200,300,400,700);
 @import url(https://use.typekit.net/sqd2nji.css);
-$font-family-base:Nunito;
-$headings-font-family:Nunito;
+$font-family-base:lato;
+$headings-font-family:lato;
 $enable-rounded: true;
 $theme-colors: (
   "primary": #EF476F,
@@ -26,7 +26,7 @@ $theme-colors: (
 @import "bootstrap";
 
 body {
-  background-color: #F7FCFF;
+  background-color: #E7ECEF;
   padding-top: 66px;
 }
 
@@ -51,16 +51,24 @@ nav {
   }
 }
 
+.navbar {
+  svg {
+    height: 32px;
+  }
+}
+
 .jumbotron {
   color: #FFF;
+  background: #2274A5;
   border-radius: 0;
   margin-top: -3px;
-  padding-top: 3em;
-  background: image-url('hero.jpg') no-repeat;
-  background-position: center top;
-  background-size: auto 600px;
-  background-color: #26547C;
-  background-attachment: fixed, fixed;
+  padding-top: 2em;
+  margin-left: -5vw;
+  margin-right: -5vw;
+
+  .lead {
+    font-size: 26px;
+  }
 
   .hero-left {
     padding: 5em 2em 4em;
@@ -75,7 +83,9 @@ nav {
 
   a.btn {
     font-weight: bold;
-    border-radius: 3em;
+    padding-left: 4em;
+    padding-right: 4em;
+    margin: auto 1em;
   }
 
   .carousel-container {
@@ -100,6 +110,10 @@ nav {
     background-position: center top;
     background-attachment: scroll;
 
+    a.btn {
+      margin-bottom: 1rem;
+    }
+
     .hero-left {
       padding-top: 3em;
     }
@@ -108,10 +122,10 @@ nav {
 
 
 #main-nav-bar {
-  background-color: #2274A5;
+  background-color: #FFF;
   padding: 0.8em;
   transition: 0.4s;
-  //border-bottom: 1px solid #303B45;
+  border-bottom: 1px solid #c8cfd6;;
 
   .navbar-brand {
     font-weight: bold;
@@ -125,7 +139,7 @@ nav {
       .nav-item {
         a {
           font-weight: bold;
-          color: #FFF;
+          color: #2274A5;
         }
         a:hover {
           color: #EF476F;
@@ -135,25 +149,31 @@ nav {
   }
 }
 
-.card.course-card {
-  border: .075rem solid #DDD;
-  border-radius: .375rem;
-  //box-shadow: 0 0.075rem 0.125rem 0 rgba(0,0,0,.075);
-  transition: .5s;
-  padding: 1em;
+.course-card {
+  box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+  border: none;
+  font-family: Nunito, sans-serif;
+  display: block;
+
+  *:hover {
+    text-decoration: none;
+  }
 
   .card-header {
-    font-family: Nunito;
-    color: #444;
+    background: #2274A5;
     font-weight: bold;
-    font-size: 1.4em;
     border: none;
-    padding: 0;
-    background: none;
+
+    h2 {
+      color: #FFF;
+      padding: 0;
+      margin: 0;
+      font-size: 1rem;
+      font-family: Nunito, sans-serif;
+    }
   }
 
   .card-body {
-    padding: 0.5em 0;
 
     p.card-text {
       padding: none;
@@ -163,15 +183,14 @@ nav {
   }
 
   .card-footer {
-    background: none;
     border: none;
+    background: none;
+    .btn {
+      border-radius: 3rem;
+      margin-bottom: .5rem;
+    }
   }
 
-}
-
-.card.course-card:hover {
-  transform: translate3d(0px, -2px, 0px);
-  transition: .5s;
 }
 
 .course-card-row {
@@ -197,7 +216,7 @@ nav {
 .icon-bar {
 	width: 22px;
 	height: 2px;
-	background-color: #FFF;
+	background-color: #2274A5;
 	display: block;
 	transition: all 0.2s;
 	margin-top: 4px
