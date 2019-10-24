@@ -1,20 +1,18 @@
-<div class='grey-header'>
+<div class='header-row'>
   <div class='container'>
     <div class='row'>
-      <div class='col-lg-8 offset-lg-2'>
-        <h4><%= @station.course.title %></h4>
-        <div class='back-next'>
-          <%= link_to "Back to all stations", course_path(@station.course) %>
+      <div class='col-lg-12 breadcrumbs'>
+        <h4><%= link_to "Back to #{@station.course.title}", course_path(@station.course) %>
           <% if @next_station %>
-            <%= link_to"Next station", station_path(@next_station), class: "float-right" %>
+             |
+             <%= link_to"Next station", station_path(@next_station) %>
           <% end %>
-        </div>
+        </h4>
       </div>
     </div>
   </div>
 </div>
 <div class="container station-show">
-
   <div class='row'>
     <div class='col-lg-8 offset-lg-2 text-right mark-complete' style='margin-top: 30px;'>
       Mark as complete:
